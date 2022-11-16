@@ -31,7 +31,7 @@ namespace QuanLyKTX
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_TrangChu));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_ThongKe = new System.Windows.Forms.Button();
+            this.btn_Phong = new System.Windows.Forms.Button();
             this.btn_CaiDat = new System.Windows.Forms.Button();
             this.btn_ThietBi = new System.Windows.Forms.Button();
             this.btn_NhanVien = new System.Windows.Forms.Button();
@@ -39,37 +39,34 @@ namespace QuanLyKTX
             this.btn_SinhVien = new System.Windows.Forms.Button();
             this.btn_HoaDon = new System.Windows.Forms.Button();
             this.btn_TrangChu = new System.Windows.Forms.Button();
-            this.lsb_ThongTinCaNhan = new System.Windows.Forms.ListBox();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.panel1.Controls.Add(this.lsb_ThongTinCaNhan);
             this.panel1.Location = new System.Drawing.Point(120, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(540, 402);
+            this.panel1.Size = new System.Drawing.Size(540, 351);
             this.panel1.TabIndex = 0;
             // 
-            // btn_ThongKe
+            // btn_Phong
             // 
-            this.btn_ThongKe.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_ThongKe.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btn_ThongKe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_ThongKe.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ThongKe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ThongKe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ThongKe.Image = global::QuanLyKTX.Properties.Resources.Files_icon;
-            this.btn_ThongKe.Location = new System.Drawing.Point(12, 318);
-            this.btn_ThongKe.Name = "btn_ThongKe";
-            this.btn_ThongKe.Size = new System.Drawing.Size(102, 45);
-            this.btn_ThongKe.TabIndex = 7;
-            this.btn_ThongKe.Text = "Thống kê";
-            this.btn_ThongKe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_ThongKe.UseMnemonic = false;
-            this.btn_ThongKe.UseVisualStyleBackColor = false;
-            this.btn_ThongKe.Click += new System.EventHandler(this.btn_ThongKe_Click);
+            this.btn_Phong.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Phong.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_Phong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Phong.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Phong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Phong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Phong.Image = global::QuanLyKTX.Properties.Resources.room_icon;
+            this.btn_Phong.Location = new System.Drawing.Point(12, 165);
+            this.btn_Phong.Name = "btn_Phong";
+            this.btn_Phong.Size = new System.Drawing.Size(102, 45);
+            this.btn_Phong.TabIndex = 7;
+            this.btn_Phong.Text = "Phòng";
+            this.btn_Phong.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_Phong.UseMnemonic = false;
+            this.btn_Phong.UseVisualStyleBackColor = false;
+            this.btn_Phong.Click += new System.EventHandler(this.btn_Phong_Click);
             // 
             // btn_CaiDat
             // 
@@ -80,7 +77,7 @@ namespace QuanLyKTX
             this.btn_CaiDat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_CaiDat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_CaiDat.Image = global::QuanLyKTX.Properties.Resources.setting;
-            this.btn_CaiDat.Location = new System.Drawing.Point(12, 369);
+            this.btn_CaiDat.Location = new System.Drawing.Point(12, 318);
             this.btn_CaiDat.Name = "btn_CaiDat";
             this.btn_CaiDat.Size = new System.Drawing.Size(102, 45);
             this.btn_CaiDat.TabIndex = 6;
@@ -205,24 +202,15 @@ namespace QuanLyKTX
             this.btn_TrangChu.UseMnemonic = false;
             this.btn_TrangChu.UseVisualStyleBackColor = false;
             this.btn_TrangChu.Click += new System.EventHandler(this.btn_TrangChu_Click);
-            this.btn_TrangChu.MouseHover += new System.EventHandler(this.btn_TrangChu_MouseHover);
-            // 
-            // lsb_ThongTinCaNhan
-            // 
-            this.lsb_ThongTinCaNhan.FormattingEnabled = true;
-            this.lsb_ThongTinCaNhan.Location = new System.Drawing.Point(25, 20);
-            this.lsb_ThongTinCaNhan.Name = "lsb_ThongTinCaNhan";
-            this.lsb_ThongTinCaNhan.Size = new System.Drawing.Size(484, 355);
-            this.lsb_ThongTinCaNhan.TabIndex = 0;
             // 
             // frm_TrangChu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(666, 425);
+            this.ClientSize = new System.Drawing.Size(666, 383);
             this.Controls.Add(this.btn_ThietBi);
-            this.Controls.Add(this.btn_ThongKe);
+            this.Controls.Add(this.btn_Phong);
             this.Controls.Add(this.btn_CaiDat);
             this.Controls.Add(this.btn_NhanVien);
             this.Controls.Add(this.btn_Toa);
@@ -230,11 +218,15 @@ namespace QuanLyKTX
             this.Controls.Add(this.btn_HoaDon);
             this.Controls.Add(this.btn_TrangChu);
             this.Controls.Add(this.panel1);
+            this.HelpButton = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frm_TrangChu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trang chủ";
+            this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.frm_TrangChu_HelpButtonClicked);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_TrangChu_FormClosing);
             this.Load += new System.EventHandler(this.frm_TrangChu_Load);
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -249,7 +241,6 @@ namespace QuanLyKTX
         private System.Windows.Forms.Button btn_NhanVien;
         private System.Windows.Forms.Button btn_ThietBi;
         private System.Windows.Forms.Button btn_CaiDat;
-        private System.Windows.Forms.Button btn_ThongKe;
-        private System.Windows.Forms.ListBox lsb_ThongTinCaNhan;
+        private System.Windows.Forms.Button btn_Phong;
     }
 }

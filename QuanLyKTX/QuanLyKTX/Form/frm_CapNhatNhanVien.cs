@@ -31,16 +31,24 @@ namespace QuanLyKTX
         }
         private void frm_CapNhatNhanVien_Load(object sender, EventArgs e)
         {
-            txt_MaNhanVien.Text = MaNhanVien;
-            txt_TenNhanVien.Text = TenNhanVien;
-            txt_SoDienThoai.Text = SoDienThoai;
-            cbb_GioiTinh.Text = GioiTinh;
-            txt_TonGiao.Text = TonGiao;
-            txt_QuocTich.Text = QuocTich;
-            txt_CMND.Text = CMND_CCCD;
-            txt_ChucVu.Text = ChucVu;
-            cbb_MaNQL.Text = MaNQL;
-            txt_MaNhanVien.Focus();
+            if(tmp == 0)
+            {
+                txt_MaNhanVien.Focus();
+            }
+            else
+            {
+
+                txt_MaNhanVien.Text = MaNhanVien;
+                txt_TenNhanVien.Text = TenNhanVien;
+                txt_SoDienThoai.Text = SoDienThoai;
+                cbb_GioiTinh.Text = GioiTinh;
+                txt_TonGiao.Text = TonGiao;
+                txt_QuocTich.Text = QuocTich;
+                txt_CMND.Text = CMND_CCCD;
+                txt_ChucVu.Text = ChucVu;
+                cbb_MaNQL.Text = MaNQL;
+                txt_MaNhanVien.Focus();
+            }    
         }
 
         private void btn_luu_Click(object sender, EventArgs e)
@@ -50,7 +58,7 @@ namespace QuanLyKTX
                 NhanVien nv = new NhanVien(txt_MaNhanVien.Text, txt_TenNhanVien.Text, txt_SoDienThoai.Text, cbb_GioiTinh.Text,
                     txt_TonGiao.Text, txt_QuocTich.Text, txt_CMND.Text, txt_ChucVu.Text, cbb_MaNQL.Text);
                 NhanVien_BUS nvBUS = new NhanVien_BUS();
-                if (nvBUS.ThemNhanVien(nv))
+                if (nvBUS.ThemNhanVien(nv) > 0)
                 {
                     MessageBox.Show("Thêm mới nhân viên thành công!");
                     this.Close();
@@ -62,12 +70,30 @@ namespace QuanLyKTX
                 NhanVien nv = new NhanVien(txt_MaNhanVien.Text, txt_TenNhanVien.Text, txt_SoDienThoai.Text, cbb_GioiTinh.Text,
                     txt_TonGiao.Text, txt_QuocTich.Text, txt_CMND.Text, txt_ChucVu.Text, cbb_MaNQL.Text);
                 NhanVien_BUS nvBUS = new NhanVien_BUS();
-                if (nvBUS.SuaNhanVien(nv))
+                if (nvBUS.SuaNhanVien(nv) > 0)
                 {
-                    MessageBox.Show("Sửa đổi thông tin nhân viên thành công!");
-                    this.Close();
+                    DialogResult dr;
+                    dr = MessageBox.Show("Sửa đổi thông tin nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (dr == DialogResult.OK)
+                    {
+                        fmNhanVien = new frm_NhanVien();
+                        this.Hide();
+                        fmNhanVien.ShowDialog();
+                        this.Close();
+                    }
                 }
-                else MessageBox.Show("Có lỗi xảy ra!");
+                else
+                {
+                    DialogResult dr;
+                    dr = MessageBox.Show("Có lỗi xảy ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (dr == DialogResult.OK)
+                    {
+                        fmNhanVien = new frm_NhanVien();
+                        this.Hide();
+                        fmNhanVien.ShowDialog();
+                        this.Close();
+                    }
+                }
             }
             
         }
@@ -75,6 +101,7 @@ namespace QuanLyKTX
         private void btn_huy_Click(object sender, EventArgs e)
         {
             fmNhanVien = new frm_NhanVien();
+            this.Hide();
             fmNhanVien.ShowDialog();
             this.Close();
         }

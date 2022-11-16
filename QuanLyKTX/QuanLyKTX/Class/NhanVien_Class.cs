@@ -33,7 +33,7 @@ namespace QuanLyKTX.Class
             this.MaNQL = MaNQL;
         }
 
-        public NhanVien(string TenNhanVien, string SoDienThoai, string GioiTinh,
+/*        public NhanVien(string TenNhanVien, string SoDienThoai, string GioiTinh,
             string TonGiao, string QuocTich, string CMND_CCCD, string ChucVu, string MaNQL)
         {
             this.TenNhanVien = TenNhanVien;
@@ -44,12 +44,12 @@ namespace QuanLyKTX.Class
             this.CMND_CCCD = CMND_CCCD;
             this.ChucVu = ChucVu;
             this.MaNQL = MaNQL;
-        }
+        }*/
 
         public string MaNV { get => MaNhanVien; set => MaNhanVien = value; }
         public string TenNV { get => TenNhanVien; set => TenNhanVien = value; }
         public string SoDT { get => SoDienThoai; set => SoDienThoai = value; }
-        public string Gioitinh { get => SoDienThoai; set => SoDienThoai = value; }
+        public string Gioitinh { get => GioiTinh; set => GioiTinh = value; }
         public string Tongiao { get => TonGiao; set => TonGiao = value; }
         public string Quoctich { get => QuocTich; set => QuocTich = value; }
         public string CMND { get => CMND_CCCD; set => CMND_CCCD = value; }

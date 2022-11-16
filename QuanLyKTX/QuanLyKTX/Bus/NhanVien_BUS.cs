@@ -24,15 +24,15 @@ namespace QuanLyKTX
         {
             return nvDAO.TimNhanVien(MaNV);
         }
-        public bool SuaNhanVien(NhanVien nv)
+        public int SuaNhanVien(NhanVien nv)
         {
             return nvDAO.SuaNhanVien(nv);
         }
-        public bool ThemNhanVien(NhanVien nv)
+        public int ThemNhanVien(NhanVien nv)
         {
             return nvDAO.ThemNhanVien(nv);
         }
-        public bool XoaNhanVien(string MaNhanVien1)
+        public int XoaNhanVien(string MaNhanVien1)
         {
             return nvDAO.XoaNhanVien(MaNhanVien1);
         }

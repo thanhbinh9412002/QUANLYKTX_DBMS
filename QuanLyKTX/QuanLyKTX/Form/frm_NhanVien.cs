@@ -17,6 +17,7 @@ namespace QuanLyKTX
     {
         public frm_TrangChu fmTrangChu;
         public frm_CapNhatNhanVien fmCapNhat;
+        public frm_NhanVien fmNhanVien;
         public string MaNhanVien1 = null;
         public string TenNhanVien1 = null;
         public string SoDienThoai1 = null;
@@ -27,23 +28,27 @@ namespace QuanLyKTX
         public string ChucVu1 = null;
         public string MaNQL1 = null;
         public int sukien;
-        public frm_NhanVien()
+        private string user;
+        private string role;
+        public frm_NhanVien(string user = "", string role = "")
         {
             InitializeComponent();
+            this.user = user;
+            this.role = role; 
         }
 
         private void btn_them_Click(object sender, EventArgs e)
         {
-            //fmCapNhat = new frm_CapNhatNhanVien();
+            fmCapNhat.tmp = 0;
+            this.Hide();
             fmCapNhat.ShowDialog();
-            //LoadData();
+            
         }
 
         private void btn_sua_Click(object sender, EventArgs e)
         {
             if (sukien == 1)
             {
-                fmCapNhat = new frm_CapNhatNhanVien();
                 fmCapNhat.MaNhanVien = MaNhanVien1;
                 fmCapNhat.TenNhanVien = TenNhanVien1;
                 fmCapNhat.SoDienThoai = SoDienThoai1;
@@ -54,12 +59,13 @@ namespace QuanLyKTX
                 fmCapNhat.ChucVu = ChucVu1;
                 fmCapNhat.MaNQL = MaNQL1;
                 fmCapNhat.tmp = 1;
+                this.Hide();
                 fmCapNhat.ShowDialog();
                 this.Close();
             }
             else 
             {
-                MessageBox.Show("Bạn chưa chọn nhân viên cần chỉnh sửa. Mời chọn nhân viên");
+                MessageBox.Show("Bạn chưa chọn nhân viên cần chỉnh sửa. Mời chọn nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -69,33 +75,38 @@ namespace QuanLyKTX
             {
                 NhanVien_BUS nvBUS = new NhanVien_BUS();
                 DialogResult dr;
-                dr = MessageBox.Show("Bạn có chắc chắn muốn xóa cuốn sách " + MaNhanVien1 + " không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                dr = MessageBox.Show("Bạn có chắc chắn muốn xóa nhân viên tên '" + TenNhanVien1 + "' không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dr == DialogResult.Yes)
                 {
-                    if (nvBUS.XoaNhanVien(MaNhanVien1))
+                    if (nvBUS.XoaNhanVien(MaNhanVien1) > 0)
                     {
                         MessageBox.Show("Xóa nhân viên thành công!");
                         LoadData();
                     }
                     else
                     {
-
+                        MessageBox.Show("Đã có lỗi xảy ra!","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Bạn chưa chọn nhân viên cần xóa. Mời chọn nhân viên");
+                MessageBox.Show("Bạn chưa chọn nhân viên cần xóa. Mời chọn nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void btn_quaylai_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
+            fmTrangChu = new frm_TrangChu(user, role);
+            fmTrangChu.ShowDialog();
+            
         }
 
         private void frm_NhanVien_Load(object sender, EventArgs e)
         {
+            fmCapNhat = new frm_CapNhatNhanVien();
+            fmTrangChu = new frm_TrangChu();
             LoadData();
         }
         public void LoadData()
@@ -120,9 +131,6 @@ namespace QuanLyKTX
                 MaNQL1 = Convert.ToString(dgvNhanVien.CurrentRow.Cells["MaNQL"].Value);
                 sukien = 1;
             }
-            /* DataGridViewRow row = new DataGridViewRow();
-             row = dgvNhanVien.Rows[e.RowIndex];
-             MaNhanVien1 = Convert.ToString(row.Cells["MaNhanVien"].Value);*/
         }
     }
 }

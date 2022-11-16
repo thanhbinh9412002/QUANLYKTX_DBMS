@@ -8,26 +8,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyKTX.Class;
+using QuanLyKTX.BUS;
 
 namespace QuanLyKTX
 {
     public partial class frm_TrangChu : Form
     {
         public frm_DangNhap fmDangNhap;
+        public frm_NhanVien fmNhanVien;
         public string chucvu = null;
-        public string CCMD = null;
-        public frm_TrangChu()
+        public string MNV = null;                   // Mã của người quản lý, dùng cho các form sau, gọi MNV là sẽ ra;
+        public string CMND_CCCD = null;
+        private string user;
+        private string role;
+        public frm_TrangChu(string user = "", string role = "")
         {
             InitializeComponent();
+            this.user = user;
+            this.role = role;
         }
 
         private void frm_TrangChu_Load(object sender, EventArgs e)
         {
-            //MainNoEnabled();
-            fmDangNhap = new frm_DangNhap();
-            fmDangNhap.fmTrangChu = this;
-            fmDangNhap.ShowDialog();
-            if (chucvu == "Admin")
+            if (role == "Admin")
             {
                 MainEnabled();
             }
@@ -35,44 +38,34 @@ namespace QuanLyKTX
             {
                 MainNoEnabled();
             }
-
-            //lblUser.Text = "Hi " + mfullname + " !";
-
-            //loadthongtin();
         }
         private void MainEnabled()  // quyền admin
         {
-            btn_TrangChu.Enabled = true;
-            btn_HoaDon.Enabled = true;
-            btn_SinhVien.Enabled = true;
             btn_Toa.Enabled = true;
             btn_NhanVien.Enabled = true;
-            btn_CaiDat.Enabled = true;
-            btn_ThietBi.Enabled = true;
-            btn_ThongKe.Enabled = true;
-            lsb_ThongTinCaNhan.Visible = false;
+            btn_Phong.Visible = false;
+            btn_Phong.Enabled = false;
         }
         private void MainNoEnabled()  // quyền quản lý
         {
-            btn_TrangChu.Enabled = true;
-            btn_HoaDon.Enabled = true;
-            btn_SinhVien.Enabled = true;
-            btn_Toa.Enabled = true;
             btn_NhanVien.Enabled = false;
-            btn_CaiDat.Enabled = true;
-            btn_ThietBi.Enabled = true;
-            btn_ThongKe.Enabled = false;
+            btn_NhanVien.Visible = false;
+            btn_Toa.Visible = false;
+            btn_Toa.Enabled = false;
+            btn_CaiDat.Location = new Point(12, 267);
+            TrangChu_BUS tcBUS = new TrangChu_BUS();
+            CMND_CCCD = user;
+            MNV = tcBUS.TimMaNhanVien(CMND_CCCD);
         }
 
         private void btn_TrangChu_Click(object sender, EventArgs e)
         {
-            btn_TrangChu.BackColor = Color.White;
-           // MessageBox.Show("Hello");
+           
         }
 
         private void btn_HoaDon_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btn_Toa_Click(object sender, EventArgs e)
@@ -87,7 +80,9 @@ namespace QuanLyKTX
 
         private void btn_NhanVien_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            fmNhanVien = new frm_NhanVien(user, role);
+            fmNhanVien.ShowDialog();
         }
 
         private void btn_ThietBi_Click(object sender, EventArgs e)
@@ -100,14 +95,37 @@ namespace QuanLyKTX
 
         }
 
-        private void btn_ThongKe_Click(object sender, EventArgs e)
+        private void btn_Phong_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btn_TrangChu_MouseHover(object sender, EventArgs e)
+        private void frm_TrangChu_HelpButtonClicked(object sender, CancelEventArgs e)
         {
-            lsb_ThongTinCaNhan.Visible = true;
+            DialogResult dr;
+            dr = MessageBox.Show("\t\tQUẢN LÝ KÝ TÚC XÁ\nNhóm 07\nThành viên:\n" +
+                                                         "\n\t1. Nguyễn Thanh Bình\tMSSV: 20133025" +
+                                                         "\n\t2. Nguyễn Nhật Triều\tMSSV: 20133102" +
+                                                         "\n\t3. Đoàn Quốc Trung\tMSSV: 20133104", 
+                            "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if(dr == DialogResult.OK)
+            {
+                e.Cancel = true;
+            }    
+        }
+
+        private void frm_TrangChu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dr;
+            dr = MessageBox.Show("Bạn muốn thoát khỏi chương trình ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

@@ -50,7 +50,7 @@ namespace QuanLyKTX.DataProvider
             }
         }
 
-        public object executeScalar(String query, CommandType storedProcedure, SqlParameter[] sqlParameter)
+        public object executeScalar(String query, SqlParameter[] sqlParameter)
         {
             using (SqlCommand sqlCommand = new SqlCommand(query, openConnection()))
             {
@@ -183,8 +183,7 @@ namespace QuanLyKTX.DataProvider
                 p = new SqlParameter(pNames[i], pValues[i]);
                 cmd.Parameters.Add(p);
             }
-            connection.Close();
-            return cmd.ExecuteNonQuery(); 
+            return cmd.ExecuteNonQuery();
         }
     }     
 }

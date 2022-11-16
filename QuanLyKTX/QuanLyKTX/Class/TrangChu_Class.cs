@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace QuanLyKTX
 {
-    class TrangChu_Class
+    internal class TrangChu
     {
+        private string user;
+        private string password;
+        private string role;
+
+        TrangChu(string user, string password, string role)
+        {
+            this.user = user;
+            this.password = password;
+            this.role = role;
+        }
+        public string User { get => user; set => user = value; }
     }
 }

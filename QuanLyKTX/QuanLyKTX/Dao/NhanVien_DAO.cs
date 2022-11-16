@@ -34,29 +34,29 @@ namespace QuanLyKTX.DAO
             dt = conn.executeReader(sql, sqlParameters);
             return dt;
         }
-        public bool SuaNhanVien(NhanVien nv)
+        public int SuaNhanVien(NhanVien nv)
         {
             string spName = "[dbo].[proc_SuaNhanVien]";
             string[] pNames = { "@manv", "@tennv", "@sdtnv", "@gioitinhnv", "@tongiaonv", "@quoctichnv", "@cmnd_cccd_nv", "@cv", "@manql" };
             object[] pValues = {nv.MaNV, nv.TenNV, nv.SoDT, nv.Gioitinh, nv.Tongiao, nv.Quoctich, nv.CMND, nv.CV, nv.Manql};
-            int count = conn.ExecuteStoredProcedure(spName, pNames, pValues);
-            return count > 0;
+            int count = conn.ExecuteStoredProcedure_Update(spName, pNames, pValues);
+            return count;
         }
-        public bool ThemNhanVien(NhanVien nv)
+        public int ThemNhanVien(NhanVien nv)
         {
-            string spName = "[dbo].[proc_XoaNhanVien]";
+            string spName = "[dbo].[proc_ThemNhanVien]";
             string[] pNames = { "@manv", "@tennv", "@sdtnv", "@gioitinhnv", "@tongiaonv", "@quoctichnv", "@cmnd_cccd_nv", "@cv", "@manql" };
             object[] pValues = { nv.MaNV, nv.TenNV, nv.SoDT, nv.Gioitinh, nv.Tongiao, nv.Quoctich, nv.CMND, nv.CV, nv.Manql };
-            int count = conn.ExecuteStoredProcedure(spName, pNames, pValues);
-            return count > 0;
+            int count = conn.ExecuteStoredProcedure_Update(spName, pNames, pValues);
+            return count;
         }
-        public bool XoaNhanVien(string MaNhanVien1)
+        public int XoaNhanVien(string MaNhanVien1)
         {
             string spName = "[dbo].[proc_XoaNhanVien]";
             string[] pNames = {"@manv"};
             object[] pValues = {MaNhanVien1};
-            int count = conn.ExecuteStoredProcedure(spName, pNames, pValues);
-            return count > 0;
+            int count = conn.ExecuteStoredProcedure_Update(spName, pNames, pValues);
+            return count ;
         }
     }
 }

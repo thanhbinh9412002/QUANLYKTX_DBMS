@@ -128,10 +128,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Query data\Nhóm07_Quản_Lý_Ký_Túc_Xá.sql" />
+    <None Include="Resources\Restart-icon.png" />
+    <None Include="Resources\Login-icon.png" />
+    <None Include="Resources\Key-icon.png" />
+    <None Include="Resources\Save-icon.png" />
     <None Include="Resources\people-icon.png" />
     <None Include="Resources\remove-icon.png" />
     <None Include="Resources\add-icon.png" />
     <None Include="Resources\back-icon.png" />
+    <None Include="Resources\account-icon.png" />
     <Content Include="Resources\device-icon.png" />
     <None Include="Resources\Files-icon.png" />
     <None Include="Resources\setting.png" />
