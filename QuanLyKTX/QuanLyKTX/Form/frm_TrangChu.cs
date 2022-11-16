@@ -30,6 +30,9 @@ namespace QuanLyKTX
 
         private void frm_TrangChu_Load(object sender, EventArgs e)
         {
+            timer1.Start();
+            timer2.Start();
+            LoadPicture();
             if (role == "Admin")
             {
                 MainEnabled();
@@ -56,6 +59,12 @@ namespace QuanLyKTX
             TrangChu_BUS tcBUS = new TrangChu_BUS();
             CMND_CCCD = user;
             MNV = tcBUS.TimMaNhanVien(CMND_CCCD);
+        }
+
+        private void LoadPicture()
+        {
+            pictureBox2.Visible = false;
+            pictureBox3.Visible = false;
         }
 
         private void btn_TrangChu_Click(object sender, EventArgs e)
@@ -126,6 +135,34 @@ namespace QuanLyKTX
             {
                 e.Cancel = true;
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if(pictureBox1.Visible == true)
+            {
+                pictureBox1.Visible = false;
+                pictureBox2.Visible = true;
+                pictureBox3.Visible = false;
+            }
+            else if (pictureBox2.Visible == true)
+            {
+                pictureBox1.Visible = false;
+                pictureBox2.Visible = false;
+                pictureBox3.Visible = true;
+            }
+            else if (pictureBox3.Visible == true)
+            {
+                pictureBox1.Visible = true;
+                pictureBox2.Visible = false;
+                pictureBox3.Visible = false;
+            }
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            txt_time.Text = DateTime.Now.ToLongTimeString();
+            txt_day.Text = DateTime.Now.Date.ToString();
         }
     }
 }

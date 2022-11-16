@@ -15,7 +15,13 @@ namespace QuanLyKTX
     public partial class frm_DangNhap : Form
     {
         public frm_TrangChu fmTrangChu;
-        //public string username = null;
+
+        // HIỆU ỨNG//
+        private int counter = 0;
+        private int len = 0;
+        private string txt;
+        //-----------//-----------//
+
         public frm_DangNhap()
         {
             InitializeComponent();
@@ -54,6 +60,10 @@ namespace QuanLyKTX
         private void frm_DangNhap_Load(object sender, EventArgs e)
         {
             txt_user.Focus();
+            txt = label1.Text;
+            len = txt.Length;
+            label1.Text = "";
+            timer1.Start();
         }
 
         private void txt_user_KeyDown(object sender, KeyEventArgs e)
@@ -115,6 +125,28 @@ namespace QuanLyKTX
             else
             {
                 e.Cancel = true;
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            counter++;
+
+            if (counter > len)
+            {
+                counter = 0;
+                label1.Text = "";
+            }
+
+            else
+            {
+
+                label1.Text = txt.Substring(0, counter);
+
+                if (label1.ForeColor == Color.Blue)
+                    label1.ForeColor = Color.Orange;
+                else
+                    label1.ForeColor = Color.Blue;
             }
         }
     }

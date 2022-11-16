@@ -29,25 +29,89 @@ namespace QuanLyKTX
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_TrangChu));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_ThietBi = new System.Windows.Forms.Button();
             this.btn_Phong = new System.Windows.Forms.Button();
             this.btn_CaiDat = new System.Windows.Forms.Button();
-            this.btn_ThietBi = new System.Windows.Forms.Button();
             this.btn_NhanVien = new System.Windows.Forms.Button();
             this.btn_Toa = new System.Windows.Forms.Button();
             this.btn_SinhVien = new System.Windows.Forms.Button();
             this.btn_HoaDon = new System.Windows.Forms.Button();
             this.btn_TrangChu = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.txt_time = new System.Windows.Forms.TextBox();
+            this.txt_day = new System.Windows.Forms.TextBox();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.panel1.Location = new System.Drawing.Point(120, 12);
+            this.panel1.Controls.Add(this.pictureBox3);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Location = new System.Drawing.Point(120, 43);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(540, 351);
+            this.panel1.Size = new System.Drawing.Size(540, 320);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::QuanLyKTX.Properties.Resources.ktx3;
+            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(540, 320);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::QuanLyKTX.Properties.Resources.ktx2;
+            this.pictureBox2.Location = new System.Drawing.Point(-3, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(540, 320);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::QuanLyKTX.Properties.Resources.KTX;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(540, 320);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btn_ThietBi
+            // 
+            this.btn_ThietBi.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_ThietBi.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_ThietBi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_ThietBi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ThietBi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ThietBi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ThietBi.Image = ((System.Drawing.Image)(resources.GetObject("btn_ThietBi.Image")));
+            this.btn_ThietBi.Location = new System.Drawing.Point(12, 216);
+            this.btn_ThietBi.Name = "btn_ThietBi";
+            this.btn_ThietBi.Size = new System.Drawing.Size(102, 45);
+            this.btn_ThietBi.TabIndex = 5;
+            this.btn_ThietBi.Text = "Thiết bị";
+            this.btn_ThietBi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_ThietBi.UseMnemonic = false;
+            this.btn_ThietBi.UseVisualStyleBackColor = false;
+            this.btn_ThietBi.Click += new System.EventHandler(this.btn_ThietBi_Click);
             // 
             // btn_Phong
             // 
@@ -86,25 +150,6 @@ namespace QuanLyKTX
             this.btn_CaiDat.UseMnemonic = false;
             this.btn_CaiDat.UseVisualStyleBackColor = false;
             this.btn_CaiDat.Click += new System.EventHandler(this.btn_CaiDat_Click);
-            // 
-            // btn_ThietBi
-            // 
-            this.btn_ThietBi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_ThietBi.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btn_ThietBi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_ThietBi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ThietBi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ThietBi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ThietBi.Image = ((System.Drawing.Image)(resources.GetObject("btn_ThietBi.Image")));
-            this.btn_ThietBi.Location = new System.Drawing.Point(12, 216);
-            this.btn_ThietBi.Name = "btn_ThietBi";
-            this.btn_ThietBi.Size = new System.Drawing.Size(102, 45);
-            this.btn_ThietBi.TabIndex = 5;
-            this.btn_ThietBi.Text = "Thiết bị";
-            this.btn_ThietBi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_ThietBi.UseMnemonic = false;
-            this.btn_ThietBi.UseVisualStyleBackColor = false;
-            this.btn_ThietBi.Click += new System.EventHandler(this.btn_ThietBi_Click);
             // 
             // btn_NhanVien
             // 
@@ -203,12 +248,47 @@ namespace QuanLyKTX
             this.btn_TrangChu.UseVisualStyleBackColor = false;
             this.btn_TrangChu.Click += new System.EventHandler(this.btn_TrangChu_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // txt_time
+            // 
+            this.txt_time.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.txt_time.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_time.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.txt_time.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_time.ForeColor = System.Drawing.Color.Navy;
+            this.txt_time.Location = new System.Drawing.Point(486, 12);
+            this.txt_time.Name = "txt_time";
+            this.txt_time.Size = new System.Drawing.Size(80, 22);
+            this.txt_time.TabIndex = 8;
+            // 
+            // txt_day
+            // 
+            this.txt_day.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.txt_day.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_day.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.txt_day.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_day.ForeColor = System.Drawing.Color.Navy;
+            this.txt_day.Location = new System.Drawing.Point(582, 12);
+            this.txt_day.Name = "txt_day";
+            this.txt_day.Size = new System.Drawing.Size(78, 22);
+            this.txt_day.TabIndex = 9;
+            // 
             // frm_TrangChu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(666, 383);
+            this.Controls.Add(this.txt_day);
+            this.Controls.Add(this.txt_time);
             this.Controls.Add(this.btn_ThietBi);
             this.Controls.Add(this.btn_Phong);
             this.Controls.Add(this.btn_CaiDat);
@@ -227,7 +307,12 @@ namespace QuanLyKTX
             this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.frm_TrangChu_HelpButtonClicked);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_TrangChu_FormClosing);
             this.Load += new System.EventHandler(this.frm_TrangChu_Load);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -242,5 +327,12 @@ namespace QuanLyKTX
         private System.Windows.Forms.Button btn_ThietBi;
         private System.Windows.Forms.Button btn_CaiDat;
         private System.Windows.Forms.Button btn_Phong;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.TextBox txt_time;
+        private System.Windows.Forms.TextBox txt_day;
     }
 }

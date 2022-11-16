@@ -29,6 +29,7 @@ namespace QuanLyKTX
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_DangNhap));
             this.txt_user = new System.Windows.Forms.TextBox();
             this.txt_password = new System.Windows.Forms.TextBox();
@@ -37,6 +38,7 @@ namespace QuanLyKTX
             this.label1 = new System.Windows.Forms.Label();
             this.lb_trangthai = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_reset = new System.Windows.Forms.Button();
@@ -95,13 +97,13 @@ namespace QuanLyKTX
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.BackColor = System.Drawing.Color.Aquamarine;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Maroon;
-            this.label1.Location = new System.Drawing.Point(35, 15);
+            this.label1.Location = new System.Drawing.Point(3, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(311, 40);
+            this.label1.Size = new System.Drawing.Size(389, 40);
             this.label1.TabIndex = 11;
-            this.label1.Text = "QUẢN LÝ KÝ TÚC XÁ";
+            this.label1.Text = "HỆ THỐNG QUẢN LÝ KÝ TÚC XÁ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb_trangthai
@@ -131,6 +133,11 @@ namespace QuanLyKTX
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(395, 305);
             this.panel1.TabIndex = 14;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 200;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // button2
             // 
@@ -236,6 +243,7 @@ namespace QuanLyKTX
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
