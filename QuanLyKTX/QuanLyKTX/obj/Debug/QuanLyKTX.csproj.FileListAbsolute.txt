@@ -52,3 +52,17 @@ E:\GitHub\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\obj\Debug\QuanLyKTX.csproj.Generate
 E:\GitHub\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\obj\Debug\QuanLyKTX.csproj.CoreCompileInputs.cache
 E:\GitHub\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\obj\Debug\QuanLyKTX.exe
 E:\GitHub\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\obj\Debug\QuanLyKTX.pdb
+C:\Users\ASUS\source\repos\thanhbinh9412002\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\bin\Debug\QuanLyKTX.exe.config
+C:\Users\ASUS\source\repos\thanhbinh9412002\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\bin\Debug\QuanLyKTX.exe
+C:\Users\ASUS\source\repos\thanhbinh9412002\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\bin\Debug\QuanLyKTX.pdb
+C:\Users\ASUS\source\repos\thanhbinh9412002\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\obj\Debug\QuanLyKTX.csproj.AssemblyReference.cache
+C:\Users\ASUS\source\repos\thanhbinh9412002\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\obj\Debug\QuanLyKTX.frm_CapNhatNhanVien.resources
+C:\Users\ASUS\source\repos\thanhbinh9412002\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\obj\Debug\QuanLyKTX.frm_DangNhap.resources
+C:\Users\ASUS\source\repos\thanhbinh9412002\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\obj\Debug\QuanLyKTX.Form_ThongTinSinhVien.resources
+C:\Users\ASUS\source\repos\thanhbinh9412002\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\obj\Debug\QuanLyKTX.frm_NhanVien.resources
+C:\Users\ASUS\source\repos\thanhbinh9412002\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\obj\Debug\QuanLyKTX.frm_TrangChu.resources
+C:\Users\ASUS\source\repos\thanhbinh9412002\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\obj\Debug\QuanLyKTX.Properties.Resources.resources
+C:\Users\ASUS\source\repos\thanhbinh9412002\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\obj\Debug\QuanLyKTX.csproj.GenerateResource.cache
+C:\Users\ASUS\source\repos\thanhbinh9412002\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\obj\Debug\QuanLyKTX.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\source\repos\thanhbinh9412002\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\obj\Debug\QuanLyKTX.exe
+C:\Users\ASUS\source\repos\thanhbinh9412002\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\obj\Debug\QuanLyKTX.pdb
