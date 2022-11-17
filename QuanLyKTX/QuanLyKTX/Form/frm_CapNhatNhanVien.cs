@@ -103,7 +103,6 @@ namespace QuanLyKTX
             fmNhanVien = new frm_NhanVien();
             this.Hide();
             fmNhanVien.ShowDialog();
-            this.Close();
         }
     }
 }

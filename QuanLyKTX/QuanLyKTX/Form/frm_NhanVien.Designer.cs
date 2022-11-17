@@ -225,6 +225,7 @@ namespace QuanLyKTX
             this.Name = "frm_NhanVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhân viên";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_NhanVien_FormClosing);
             this.Load += new System.EventHandler(this.frm_NhanVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).EndInit();
             this.ResumeLayout(false);

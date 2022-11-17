@@ -16,11 +16,18 @@ namespace QuanLyKTX
     {
         public frm_DangNhap fmDangNhap;
         public frm_NhanVien fmNhanVien;
-        public string chucvu = null;
         public string MNV = null;                   // Mã của người quản lý, dùng cho các form sau, gọi MNV là sẽ ra;
         public string CMND_CCCD = null;
         private string user;
         private string role;
+
+        //-----------//Hiệu ứng//------------//
+
+        public bool kt_caidat = true;    // biến dùng lưu sự kiện đóng tắt pannel cài đặt
+        public bool kt_trangchu = true;    // biến dùng lưu sự kiện đóng tắt pannel cài đặt
+
+        //--------------//-------------------//
+
         public frm_TrangChu(string user = "", string role = "")
         {
             InitializeComponent();
@@ -28,88 +35,127 @@ namespace QuanLyKTX
             this.role = role;
         }
 
-        private void frm_TrangChu_Load(object sender, EventArgs e)
+        private void frm_TrangChu_Load(object sender, EventArgs e)   // sự kiện form load
         {
-            timer1.Start();
             timer2.Start();
-            LoadPicture();
             if (role == "Admin")
             {
                 MainEnabled();
+                LoadPicture();
             }
             else
             {
                 MainNoEnabled();
+                LoadPicture();
             }
         }
-        private void MainEnabled()  // quyền admin
+        private void MainEnabled()  // quyền admin sẽ xuất hiện tất cả button
         {
             btn_Toa.Enabled = true;
             btn_NhanVien.Enabled = true;
             btn_Phong.Visible = false;
             btn_Phong.Enabled = false;
+            panel_caidat.Visible = false;
         }
-        private void MainNoEnabled()  // quyền quản lý
+        private void MainNoEnabled()  // quyền quản lý sẽ ẩn một số button
         {
             btn_NhanVien.Enabled = false;
             btn_NhanVien.Visible = false;
             btn_Toa.Visible = false;
             btn_Toa.Enabled = false;
+            panel_caidat.Visible = false;
             btn_CaiDat.Location = new Point(12, 267);
             TrangChu_BUS tcBUS = new TrangChu_BUS();
             CMND_CCCD = user;
             MNV = tcBUS.TimMaNhanVien(CMND_CCCD);
         }
 
-        private void LoadPicture()
+        private void LoadPicture()  // hiệu ungws tự động chuyển hình trên form trang chủ
         {
+            pictureBox1.Visible = true;
             pictureBox2.Visible = false;
             pictureBox3.Visible = false;
+            timer1.Start();
+            panel_thongke.Visible = false;
         }
 
-        private void btn_TrangChu_Click(object sender, EventArgs e)
+        private void btn_TrangChu_Click(object sender, EventArgs e)  // sự kiện khi nhấn nút trang chủ
         {
-           
+            if (kt_trangchu)
+            {
+                pictureBox1.Visible = false;
+                pictureBox2.Visible = false;
+                pictureBox3.Visible = false;
+                panel_caidat.Visible = false;
+                panel_thongke.Visible = true;
+                if (role != "Admin")
+                {
+                    panel_taikhoan.Visible = false;
+                    panel_toa.Visible = false;
+                }
+                else
+                {
+                    panel_taikhoan.Visible = true;
+                    panel_toa.Visible = true;
+                }
+                kt_trangchu = false;
+            }
+            else
+            {
+                LoadPicture();
+                kt_trangchu = true;
+            }    
         }
 
-        private void btn_HoaDon_Click(object sender, EventArgs e)
+        private void btn_HoaDon_Click(object sender, EventArgs e)  // chuyển sang form hóa đơn
         {
             
         }
 
-        private void btn_Toa_Click(object sender, EventArgs e)
+        private void btn_Toa_Click(object sender, EventArgs e)  // chuyển sang form tòa
         {
 
         }
 
-        private void btn_SinhVien_Click(object sender, EventArgs e)
+        private void btn_SinhVien_Click(object sender, EventArgs e)  // chuyển sang form sinh viên
         {
 
         }
 
-        private void btn_NhanVien_Click(object sender, EventArgs e)
+        private void btn_NhanVien_Click(object sender, EventArgs e)  // chuyển sang form nhân viên
         {
             this.Hide();
             fmNhanVien = new frm_NhanVien(user, role);
             fmNhanVien.ShowDialog();
+            this.Show();
         }
 
-        private void btn_ThietBi_Click(object sender, EventArgs e)
+        private void btn_ThietBi_Click(object sender, EventArgs e)  // chuyển sang form thiết bị
         {
 
         }
 
-        private void btn_CaiDat_Click(object sender, EventArgs e)
+        private void btn_CaiDat_Click(object sender, EventArgs e)  // sự kiện nhấn button cài đặt để xuất hiện nút đăng xuất và đổi mật khẩu
+        {
+            if (kt_caidat)
+            {
+                panel_caidat.Visible = true;
+                kt_caidat = false;
+            }
+            else
+            {
+                panel_caidat.Visible = true;
+                kt_caidat = true;
+            }
+
+        }
+
+        private void btn_Phong_Click(object sender, EventArgs e)   // chuyển sang form phòng cho quyền quản lý
         {
 
         }
 
-        private void btn_Phong_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void frm_TrangChu_HelpButtonClicked(object sender, CancelEventArgs e)
+        private void frm_TrangChu_HelpButtonClicked(object sender, CancelEventArgs e)   // sự kiện nhấn nút ? trên form
         {
             DialogResult dr;
             dr = MessageBox.Show("\t\tQUẢN LÝ KÝ TÚC XÁ\nNhóm 07\nThành viên:\n" +
@@ -123,35 +169,21 @@ namespace QuanLyKTX
             }    
         }
 
-        private void frm_TrangChu_FormClosing(object sender, FormClosingEventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)  // hiệu ứng chuyển ảnh trong trang chủ
         {
-            DialogResult dr;
-            dr = MessageBox.Show("Bạn muốn thoát khỏi chương trình ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-            else
-            {
-                e.Cancel = true;
-            }
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            if(pictureBox1.Visible == true)
+            if(pictureBox1.Visible == true && (DateTime.Now.Second == 0 || DateTime.Now.Second % 30 == 1))
             {
                 pictureBox1.Visible = false;
                 pictureBox2.Visible = true;
                 pictureBox3.Visible = false;
             }
-            else if (pictureBox2.Visible == true)
+            else if (pictureBox2.Visible == true && (DateTime.Now.Second % 10 == 1 || DateTime.Now.Second % 40 == 1))
             {
                 pictureBox1.Visible = false;
                 pictureBox2.Visible = false;
                 pictureBox3.Visible = true;
             }
-            else if (pictureBox3.Visible == true)
+            else if (pictureBox3.Visible == true && (DateTime.Now.Second % 20 == 1 || DateTime.Now.Second % 50 == 1))
             {
                 pictureBox1.Visible = true;
                 pictureBox2.Visible = false;
@@ -159,10 +191,33 @@ namespace QuanLyKTX
             }
         }
 
-        private void timer2_Tick(object sender, EventArgs e)
+        private void timer2_Tick(object sender, EventArgs e)   // hiệu ứng đồng hồ
         {
             txt_time.Text = DateTime.Now.ToLongTimeString();
             txt_day.Text = DateTime.Now.Date.ToString();
+        }
+
+        private void btn_resetpass_Click(object sender, EventArgs e)   // đổi mật khẩu
+        {
+
+        }
+
+        private void btn_logout_Click(object sender, EventArgs e)  // đăng xuất
+        {
+            DialogResult dr;
+            dr = MessageBox.Show("Bạn muốn thoát khỏi chương trình ?", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            if (dr == DialogResult.OK)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void frm_TrangChu_FormClosing(object sender, FormClosingEventArgs e)  // sự kiện nhấn nút x trên form
+        {
+            if (MessageBox.Show("Bạn có chắc là muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

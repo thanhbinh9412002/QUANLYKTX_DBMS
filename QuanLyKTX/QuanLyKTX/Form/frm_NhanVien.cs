@@ -97,9 +97,7 @@ namespace QuanLyKTX
 
         private void btn_quaylai_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            fmTrangChu = new frm_TrangChu(user, role);
-            fmTrangChu.ShowDialog();
+            this.Close();
             
         }
 
@@ -130,6 +128,14 @@ namespace QuanLyKTX
                 ChucVu1 = Convert.ToString(dgvNhanVien.CurrentRow.Cells["ChucVu"].Value);
                 MaNQL1 = Convert.ToString(dgvNhanVien.CurrentRow.Cells["MaNQL"].Value);
                 sukien = 1;
+            }
+        }
+
+        private void frm_NhanVien_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc là muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                e.Cancel = true;
             }
         }
     }

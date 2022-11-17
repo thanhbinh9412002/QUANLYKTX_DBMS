@@ -42,7 +42,7 @@ namespace QuanLyKTX
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_reset = new System.Windows.Forms.Button();
-            this.btn_thoat = new System.Windows.Forms.Button();
+            this.btn_hienpass = new System.Windows.Forms.Button();
             this.btn_dangnhap = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -63,6 +63,7 @@ namespace QuanLyKTX
             this.txt_password.Name = "txt_password";
             this.txt_password.Size = new System.Drawing.Size(158, 26);
             this.txt_password.TabIndex = 3;
+            this.txt_password.UseSystemPasswordChar = true;
             this.txt_password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_password_KeyDown);
             // 
             // rdbtn_admin
@@ -93,15 +94,13 @@ namespace QuanLyKTX
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.BackColor = System.Drawing.Color.Aquamarine;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Maroon;
-            this.label1.Location = new System.Drawing.Point(3, 15);
+            this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(389, 40);
+            this.label1.Size = new System.Drawing.Size(395, 40);
             this.label1.TabIndex = 11;
             this.label1.Text = "HỆ THỐNG QUẢN LÝ KÝ TÚC XÁ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -125,7 +124,7 @@ namespace QuanLyKTX
             this.panel1.Controls.Add(this.rdbtn_quanly);
             this.panel1.Controls.Add(this.txt_user);
             this.panel1.Controls.Add(this.rdbtn_admin);
-            this.panel1.Controls.Add(this.btn_thoat);
+            this.panel1.Controls.Add(this.btn_hienpass);
             this.panel1.Controls.Add(this.lb_trangthai);
             this.panel1.Controls.Add(this.txt_password);
             this.panel1.Controls.Add(this.btn_dangnhap);
@@ -165,6 +164,7 @@ namespace QuanLyKTX
             // 
             this.btn_reset.BackColor = System.Drawing.Color.LightCoral;
             this.btn_reset.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_reset.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_reset.Image = global::QuanLyKTX.Properties.Resources.Restart_icon;
             this.btn_reset.Location = new System.Drawing.Point(257, 194);
             this.btn_reset.Name = "btn_reset";
@@ -175,25 +175,27 @@ namespace QuanLyKTX
             this.btn_reset.UseVisualStyleBackColor = false;
             this.btn_reset.Click += new System.EventHandler(this.btn_reset_Click);
             // 
-            // btn_thoat
+            // btn_hienpass
             // 
-            this.btn_thoat.BackColor = System.Drawing.Color.LightCoral;
-            this.btn_thoat.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btn_thoat.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_thoat.Image = global::QuanLyKTX.Properties.Resources.remove_icon;
-            this.btn_thoat.Location = new System.Drawing.Point(134, 194);
-            this.btn_thoat.Name = "btn_thoat";
-            this.btn_thoat.Size = new System.Drawing.Size(117, 43);
-            this.btn_thoat.TabIndex = 8;
-            this.btn_thoat.Text = "Thoát";
-            this.btn_thoat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_thoat.UseVisualStyleBackColor = false;
-            this.btn_thoat.Click += new System.EventHandler(this.btn_thoat_Click);
+            this.btn_hienpass.BackColor = System.Drawing.Color.LightCoral;
+            this.btn_hienpass.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btn_hienpass.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_hienpass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_hienpass.Image = global::QuanLyKTX.Properties.Resources.show_password;
+            this.btn_hienpass.Location = new System.Drawing.Point(134, 194);
+            this.btn_hienpass.Name = "btn_hienpass";
+            this.btn_hienpass.Size = new System.Drawing.Size(117, 43);
+            this.btn_hienpass.TabIndex = 8;
+            this.btn_hienpass.Text = "Hiển thị mật khẩu";
+            this.btn_hienpass.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_hienpass.UseVisualStyleBackColor = false;
+            this.btn_hienpass.Click += new System.EventHandler(this.btn_hienpass_Click);
             // 
             // btn_dangnhap
             // 
             this.btn_dangnhap.BackColor = System.Drawing.Color.LightCoral;
             this.btn_dangnhap.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_dangnhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_dangnhap.Image = global::QuanLyKTX.Properties.Resources.Login_icon;
             this.btn_dangnhap.Location = new System.Drawing.Point(11, 194);
             this.btn_dangnhap.Name = "btn_dangnhap";
@@ -236,7 +238,7 @@ namespace QuanLyKTX
         private System.Windows.Forms.RadioButton rdbtn_admin;
         private System.Windows.Forms.RadioButton rdbtn_quanly;
         private System.Windows.Forms.Button btn_dangnhap;
-        private System.Windows.Forms.Button btn_thoat;
+        private System.Windows.Forms.Button btn_hienpass;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lb_trangthai;
         private System.Windows.Forms.Button btn_reset;

@@ -20,6 +20,7 @@ namespace QuanLyKTX
         private int counter = 0;
         private int len = 0;
         private string txt;
+        private bool showpass = true;
         //-----------//-----------//
 
         public frm_DangNhap()
@@ -45,14 +46,21 @@ namespace QuanLyKTX
             int kq = dnBUS.Check_Tai_Khoan(tk);
             if (kq == 1)
             {
-                this.Hide();
+                txt_user.ResetText();
+                txt_password.ResetText();
+                rdbtn_admin.Refresh();
+                rdbtn_quanly.Refresh();
                 fmTrangChu = new frm_TrangChu(user, role);
+                this.Hide();
                 fmTrangChu.ShowDialog();
+                this.Show();
             }
             else
             {
                 lb_trangthai.Text = "Đăng nhập không thành công! Vui lòng kiểm tra lại !";
                 txt_password.ResetText();
+                rdbtn_admin.Refresh();
+                rdbtn_quanly.Refresh();
                 txt_password.Focus();
             }
         }
@@ -105,29 +113,30 @@ namespace QuanLyKTX
             txt_user.Focus();
         }
 
-        private void btn_thoat_Click(object sender, EventArgs e)
+        private void btn_hienpass_Click(object sender, EventArgs e)
         {
-            DialogResult dr;
-            dr = MessageBox.Show("Bạn muốn thoát khỏi chương trình ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == DialogResult.Yes)
+            if(showpass)
             {
-                Application.Exit();
+                txt_password.UseSystemPasswordChar = false;
+                btn_hienpass.Text = "Ẩn mật khẩu";
+                btn_hienpass.Image = QuanLyKTX.Properties.Resources.private_password;
+                showpass = false;
             }
+            else
+            {
+                txt_password.UseSystemPasswordChar = true;
+                btn_hienpass.Text = "Hiện mật khẩu";
+                btn_hienpass.Image = QuanLyKTX.Properties.Resources.show_password;
+                showpass = true;
+            }    
         }
         private void frm_TrangChu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult dr;
-            dr = MessageBox.Show("Bạn muốn thoát khỏi chương trình ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-            else
+            if (MessageBox.Show("Bạn có chắc là muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 e.Cancel = true;
             }
         }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             counter++;
