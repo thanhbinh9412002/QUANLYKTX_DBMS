@@ -13,7 +13,8 @@ namespace QuanLyKTX.DataProvider
     public class DBConnection
     {
         //SqlConnection cnnStr = new SqlConnection(@"Data Source=THANHBINH\SQLEXPRESS;Initial Catalog=QuanLyKTX;Integrated Security=True");
-        SqlConnection cnnStr = new SqlConnection(@"Data Source=LAPTOP-MB5F72F2\SQLEXPRESS;Initial Catalog=QuanLyKTX;Integrated Security=True");
+        SqlConnection cnnStr = new SqlConnection(@"Data Source=DESKTOP-JBR423G;Initial Catalog=QuanLyKTX;Integrated Security=True");
+
         private SqlDataAdapter adapter;
         private SqlConnection connection;
         public DBConnection()
@@ -73,6 +74,28 @@ namespace QuanLyKTX.DataProvider
                 return result;
             }
         }
+
+        internal DataTable ExecuteProcedureDatatable(string spName, string[] pNames, object[] pValues)
+        {
+            openConnection();
+            // Khai báo và khởi tạo đối tượng Command với tham số tên thủ tục spName
+            SqlCommand cmd = new SqlCommand(spName, connection);
+            // Khai báo kiểu thủ tục
+            cmd.CommandType = CommandType.StoredProcedure;
+            // Khai báo tham số SqlParameter
+            SqlParameter p;
+            // Khởi tạo danh sách các tham số với giá trị tương ứng
+            for (int i = 0; i < pNames.Length; i++)
+            {
+                p = new SqlParameter(pNames[i], pValues[i]);
+                cmd.Parameters.Add(p);
+            }
+            DataTable dt = new DataTable();
+            SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            dt.Load(dataReader);
+            return dt;
+        }
+
         public DataTable executeReader(String query, SqlParameter[] sqlParameter)
         {
             using (SqlCommand sqlCommand = new SqlCommand(query, openConnection()))
@@ -95,6 +118,20 @@ namespace QuanLyKTX.DataProvider
                 }
                 return dt;
             }
+        }
+        public DataTable ExecuteProcedureDatatableNoPara(string spName) //trả về 1 bảng khi gọi procedure bên sql
+
+        {
+            openConnection();
+            // Khai báo và khởi tạo đối tượng Command với tham số tên thủ tục spName
+            SqlCommand cmd = new SqlCommand(spName, connection);
+            // Khai báo kiểu thủ tục
+            cmd.CommandType = CommandType.StoredProcedure;
+            DataTable dt = new DataTable();
+            SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            dt.Load(dataReader);
+            return dt;
+
         }
         public int executeCount(string query)           // trả về số lượng 
         {

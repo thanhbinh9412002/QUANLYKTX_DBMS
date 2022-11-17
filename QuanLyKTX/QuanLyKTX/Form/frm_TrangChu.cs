@@ -16,6 +16,8 @@ namespace QuanLyKTX
     {
         public frm_DangNhap fmDangNhap;
         public frm_NhanVien fmNhanVien;
+        public frm_Toa fmToa;
+        //public frm_Phong fmPhong;
         public string MNV = null;                   // Mã của người quản lý, dùng cho các form sau, gọi MNV là sẽ ra;
         public string CMND_CCCD = null;
         private string user;
@@ -114,7 +116,10 @@ namespace QuanLyKTX
 
         private void btn_Toa_Click(object sender, EventArgs e)  // chuyển sang form tòa
         {
-
+            this.Hide();
+            fmToa = new frm_Toa(user, role);
+            fmToa.ShowDialog();
+            this.Show();
         }
 
         private void btn_SinhVien_Click(object sender, EventArgs e)  // chuyển sang form sinh viên
