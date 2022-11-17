@@ -30,6 +30,7 @@ namespace QuanLyKTX
         public int sukien;
         private string user;
         private string role;
+        public string manhanvienfor = null;
         public frm_NhanVien(string user = "", string role = "")
         {
             InitializeComponent();

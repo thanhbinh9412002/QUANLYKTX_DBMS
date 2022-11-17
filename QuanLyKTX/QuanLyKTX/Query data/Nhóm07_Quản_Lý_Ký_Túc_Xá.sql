@@ -828,6 +828,18 @@ begin
 end
 go
 
+create function [dbo].[func_SoLuongNhanVienTheoGioiTinh] (@gioitinh nvarchar(5))
+returns int
+as
+begin 
+	declare @soluong int
+	select @soluong = count(MaNhanVien)
+	from NhanVien
+	where GioiTinh = @gioitinh
+	return @soluong
+end
+go
+
 create function [dbo].[func_SoLuongNhanVienTheoChucVu] (@cv nvarchar(20))
 returns int
 as

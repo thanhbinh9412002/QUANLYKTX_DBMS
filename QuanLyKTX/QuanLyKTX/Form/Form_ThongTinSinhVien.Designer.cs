@@ -312,6 +312,7 @@
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin sinh viên";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // button4
             // 
@@ -375,6 +376,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Form_ThongTinSinhVien";
             this.Text = "FrmThongTinSinhVien";
+            this.Load += new System.EventHandler(this.Form_ThongTinSinhVien_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
