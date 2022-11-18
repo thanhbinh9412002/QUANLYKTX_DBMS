@@ -57,12 +57,13 @@ namespace QuanLyKTX
             // 
             this.label1.BackColor = System.Drawing.Color.Cyan;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(119, 19);
+            this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(388, 32);
+            this.label1.Size = new System.Drawing.Size(594, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "CẬP NHẬT THÔNG TIN NHÂN VIÊN";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -235,6 +236,9 @@ namespace QuanLyKTX
             // 
             this.cbb_GioiTinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbb_GioiTinh.FormattingEnabled = true;
+            this.cbb_GioiTinh.Items.AddRange(new object[] {
+            "Nam",
+            "Nữ"});
             this.cbb_GioiTinh.Location = new System.Drawing.Point(401, 183);
             this.cbb_GioiTinh.Name = "cbb_GioiTinh";
             this.cbb_GioiTinh.Size = new System.Drawing.Size(161, 32);
@@ -291,6 +295,7 @@ namespace QuanLyKTX
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(594, 515);
+            this.ControlBox = false;
             this.Controls.Add(this.btn_huy);
             this.Controls.Add(this.btn_luu);
             this.Controls.Add(this.cbb_GioiTinh);

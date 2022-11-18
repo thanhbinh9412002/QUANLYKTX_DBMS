@@ -58,5 +58,20 @@ namespace QuanLyKTX.DAO
             int count = conn.ExecuteStoredProcedure_Update(spName, pNames, pValues);
             return count ;
         }
+        public DataTable Lay_Ma_Nguoi_Quan_Ly()
+        {
+            string sql = "select MaNhanVien from NhanVien where ChucVu = N'Quản lý'";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            DataTable mnv = new DataTable();
+            mnv = conn.executeReader(sql, sqlParameters);
+            return mnv;
+        }
+        public string Lay_Ma_Nhan_Vien()
+        {
+            const string sql = "select max(MaNhanVien) from NhanVien";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            object mnhanvien = conn.executeScalar(sql, sqlParameters);
+            return Convert.ToString(mnhanvien);
+        }
     }
 }

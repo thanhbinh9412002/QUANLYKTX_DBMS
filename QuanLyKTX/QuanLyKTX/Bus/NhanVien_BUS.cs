@@ -36,5 +36,13 @@ namespace QuanLyKTX
         {
             return nvDAO.XoaNhanVien(MaNhanVien1);
         }
+        public DataTable Lay_Ma_Nguoi_Quan_Ly()
+        {
+            return nvDAO.Lay_Ma_Nguoi_Quan_Ly();
+        }
+        public string Lay_Ma_Nhan_Vien()
+        {
+            return nvDAO.Lay_Ma_Nhan_Vien();
+        }
     }
 }

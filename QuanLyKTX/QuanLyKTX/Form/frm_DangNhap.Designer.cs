@@ -38,12 +38,12 @@ namespace QuanLyKTX
             this.label1 = new System.Windows.Forms.Label();
             this.lb_trangthai = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_reset = new System.Windows.Forms.Button();
             this.btn_hienpass = new System.Windows.Forms.Button();
             this.btn_dangnhap = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -133,6 +133,11 @@ namespace QuanLyKTX
             this.panel1.Size = new System.Drawing.Size(395, 305);
             this.panel1.TabIndex = 14;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 200;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.LightCyan;
@@ -202,11 +207,6 @@ namespace QuanLyKTX
             this.btn_dangnhap.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_dangnhap.UseVisualStyleBackColor = false;
             this.btn_dangnhap.Click += new System.EventHandler(this.btn_dangnhap_Click);
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 200;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // frm_DangNhap
             // 

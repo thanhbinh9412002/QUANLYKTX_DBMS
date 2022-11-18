@@ -147,6 +147,7 @@ namespace QuanLyKTX
             this.btn_quaylai.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn_quaylai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_quaylai.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_quaylai.Image = global::QuanLyKTX.Properties.Resources.back_icon;
             this.btn_quaylai.Location = new System.Drawing.Point(676, 352);
             this.btn_quaylai.Name = "btn_quaylai";
             this.btn_quaylai.Size = new System.Drawing.Size(90, 52);
@@ -161,6 +162,7 @@ namespace QuanLyKTX
             this.btn_xoa.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn_xoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_xoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_xoa.Image = global::QuanLyKTX.Properties.Resources.remove_icon;
             this.btn_xoa.Location = new System.Drawing.Point(537, 352);
             this.btn_xoa.Name = "btn_xoa";
             this.btn_xoa.Size = new System.Drawing.Size(90, 52);
@@ -175,6 +177,7 @@ namespace QuanLyKTX
             this.btn_sua.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn_sua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_sua.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_sua.Image = global::QuanLyKTX.Properties.Resources.setting;
             this.btn_sua.Location = new System.Drawing.Point(394, 352);
             this.btn_sua.Name = "btn_sua";
             this.btn_sua.Size = new System.Drawing.Size(90, 52);
@@ -190,6 +193,7 @@ namespace QuanLyKTX
             this.btn_them.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_them.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_them.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_them.Image = global::QuanLyKTX.Properties.Resources.add_icon;
             this.btn_them.Location = new System.Drawing.Point(256, 352);
             this.btn_them.Name = "btn_them";
             this.btn_them.Size = new System.Drawing.Size(90, 52);
@@ -206,6 +210,7 @@ namespace QuanLyKTX
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(952, 416);
+            this.ControlBox = false;
             this.Controls.Add(this.btn_quaylai);
             this.Controls.Add(this.btn_xoa);
             this.Controls.Add(this.btn_sua);
@@ -213,13 +218,11 @@ namespace QuanLyKTX
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvNhanVien);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.HelpButton = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frm_NhanVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhân viên";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_NhanVien_FormClosing);
             this.Load += new System.EventHandler(this.frm_NhanVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).EndInit();
             this.ResumeLayout(false);

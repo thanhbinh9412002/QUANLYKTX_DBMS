@@ -25,15 +25,25 @@ namespace QuanLyKTX
         public string ChucVu = null;
         public string MaNQL = null;
         public int tmp;
-        public frm_CapNhatNhanVien()
+        private string user;
+        private string role;
+        public frm_CapNhatNhanVien(string user = "", string role = "")
         {
             InitializeComponent();
+            this.role = role;
+            this.user = user;
         }
         private void frm_CapNhatNhanVien_Load(object sender, EventArgs e)
         {
-            if(tmp == 0)
+            NhanVien_BUS nvBUS = new NhanVien_BUS();
+            cbb_MaNQL.DataSource = nvBUS.Lay_Ma_Nguoi_Quan_Ly();
+            cbb_MaNQL.DisplayMember = "MaNhanVien";
+            cbb_MaNQL.ValueMember = "MaNhanVien";
+            if (tmp == 0)
             {
-                txt_MaNhanVien.Focus();
+                txt_TenNhanVien.Focus();
+                txt_MaNhanVien.Text = Tao_Ma_Nhan_Vien("NV");
+                txt_MaNhanVien.ReadOnly = true;
             }
             else
             {
@@ -49,6 +59,22 @@ namespace QuanLyKTX
                 cbb_MaNQL.Text = MaNQL;
                 txt_MaNhanVien.Focus();
             }    
+        }
+
+        public static string Tao_Ma_Nhan_Vien(string tiento)
+        {
+            var nvBUS = new NhanVien_BUS();
+            string key = tiento;
+            string hauto;
+            string tmp = nvBUS.Lay_Ma_Nhan_Vien();
+            hauto = tmp.Substring(2);
+            int sonhanvien = Int32.Parse(hauto);
+            sonhanvien++;
+            hauto = sonhanvien.ToString();
+            if (sonhanvien < 10)
+                hauto = "0" + hauto;
+            key = key + hauto;
+            return key;
         }
 
         private void btn_luu_Click(object sender, EventArgs e)
@@ -76,9 +102,6 @@ namespace QuanLyKTX
                     dr = MessageBox.Show("Sửa đổi thông tin nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (dr == DialogResult.OK)
                     {
-                        fmNhanVien = new frm_NhanVien();
-                        this.Hide();
-                        fmNhanVien.ShowDialog();
                         this.Close();
                     }
                 }
@@ -88,21 +111,15 @@ namespace QuanLyKTX
                     dr = MessageBox.Show("Có lỗi xảy ra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     if (dr == DialogResult.OK)
                     {
-                        fmNhanVien = new frm_NhanVien();
-                        this.Hide();
-                        fmNhanVien.ShowDialog();
                         this.Close();
                     }
                 }
             }
             
         }
-
         private void btn_huy_Click(object sender, EventArgs e)
         {
-            fmNhanVien = new frm_NhanVien();
-            this.Hide();
-            fmNhanVien.ShowDialog();
+            this.Close();
         }
     }
 }

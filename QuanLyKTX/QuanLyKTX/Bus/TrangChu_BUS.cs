@@ -36,5 +36,29 @@ namespace QuanLyKTX.BUS
         {
             return tcDAO.TongSoSinhVien();
         }
+        public string TongSoTaiKhoan()
+        {
+            return tcDAO.TongSoTaiKhoan();
+        }
+        public string TongSoToa()
+        {
+            return tcDAO.TongSoToa();
+        }
+        public string SoLuongPhongTrong()
+        {
+            return tcDAO.SoLuongPhongTrong();
+        }
+        public string SoLuongPhongDu()
+        {
+            return tcDAO.SoLuongPhongDu();
+        }
+        public string SoLuongThietBiHong()
+        {
+            return tcDAO.SoLuongThietBiHong();
+        }
+        public string TongSoLuongThietBi()
+        {
+            return tcDAO.TongSoLuongThietBi();
+        }
     }
 }

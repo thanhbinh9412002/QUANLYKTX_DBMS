@@ -20,7 +20,8 @@ namespace QuanLyKTX
         public frm_Phong fmPhong;
         public frm_HoaDon fmHoaDon;
         public frm_SinhVien fmSinhVien;
-        public frm_ThietBi fmThietBi;
+        public frm_DoiMatKhau fmDoiMatKhau;
+        //public frm_ThietBi fmThietBi;
         //public frm_Phong fmPhong;
         public string MNV = null;                   // Mã của người quản lý, dùng cho các form sau, gọi MNV là sẽ ra;
         public string CMND_CCCD = null;
@@ -70,8 +71,10 @@ namespace QuanLyKTX
             btn_NhanVien.Visible = false;
             btn_Toa.Visible = false;
             btn_Toa.Enabled = false;
+            btn_ThietBi.Visible = false;
+            btn_ThietBi.Enabled = false;
             panel_caidat.Visible = false;
-            btn_CaiDat.Location = new Point(12, 267);
+            btn_CaiDat.Location = new Point(12, 216);
             TrangChu_BUS tcBUS = new TrangChu_BUS();
             CMND_CCCD = user;
             MNV = tcBUS.TimMaNhanVien(CMND_CCCD);
@@ -108,10 +111,18 @@ namespace QuanLyKTX
                     panel_toa.Visible = true;
                     lb_nvnam.Text = Convert.ToString(tcBUS.TimSoLuongNhanVienTheoGioiTinh("Nam"));
                     lb_nvnu.Text = Convert.ToString(tcBUS.TimSoLuongNhanVienTheoGioiTinh("Nữ"));
-                    lb_nvtong.Text = Convert.ToString(tcBUS.TongSoNhanVien());
+                    lb_nvtong.Text = tcBUS.TongSoNhanVien();
                     lb_svnam.Text = Convert.ToString(tcBUS.TimSoLuongSinhVienTheoGioiTinh("Nam"));
                     lb_svnu.Text = Convert.ToString(tcBUS.TimSoLuongSinhVienTheoGioiTinh("Nữ"));
-                    lb_svtong.Text = Convert.ToString(tcBUS.TongSoSinhVien());
+                    lb_svtong.Text = tcBUS.TongSoSinhVien();
+                    lb_soluongtk.Text = tcBUS.TongSoTaiKhoan();
+                    lb_soluongtoa.Text = tcBUS.TongSoToa();
+                    lb_phongdu.Text = tcBUS.SoLuongPhongDu();
+                    lb_phongtrong.Text = tcBUS.SoLuongPhongTrong();
+                    lb_phongtong.Text = Convert.ToString(int.Parse(lb_phongdu.Text) + int.Parse(lb_phongtrong.Text));
+                    lb_tbhong.Text = tcBUS.SoLuongThietBiHong();
+                    lb_tbtong.Text = tcBUS.TongSoLuongThietBi();
+                    lb_tbsd.Text = Convert.ToString(int.Parse(lb_tbtong.Text) - int.Parse(lb_tbhong.Text));
                 }
                 kt_trangchu = false;
             }
@@ -166,7 +177,7 @@ namespace QuanLyKTX
             }
             else
             {
-                panel_caidat.Visible = true;
+                panel_caidat.Visible = false;
                 kt_caidat = true;
             }
 
@@ -225,17 +236,15 @@ namespace QuanLyKTX
 
         private void btn_resetpass_Click(object sender, EventArgs e)   // đổi mật khẩu
         {
-
+            this.Hide();
+            fmDoiMatKhau = new frm_DoiMatKhau(user, role);
+            fmDoiMatKhau.ShowDialog();
+            this.Show();
         }
 
         private void btn_logout_Click(object sender, EventArgs e)  // đăng xuất
         {
-            DialogResult dr;
-            dr = MessageBox.Show("Bạn muốn thoát khỏi chương trình ?", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
-            if (dr == DialogResult.OK)
-            {
-                Application.Exit();
-            }
+            this.Close();
         }
 
         private void frm_TrangChu_FormClosing(object sender, FormClosingEventArgs e)  // sự kiện nhấn nút x trên form

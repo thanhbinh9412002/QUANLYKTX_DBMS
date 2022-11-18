@@ -74,6 +74,8 @@
     <Compile Include="Dao\SinhVien_DAO.cs" />
     <Compile Include="Dao\ThietBiTrongPhong_DAO.cs" />
     <Compile Include="Dao\Toa_DAO.cs" />
+    <Compile Include="Bus\DoiMatKhau_BUS.cs" />
+    <Compile Include="Dao\DoiMatKhau_DAO.cs" />
     <Compile Include="Form\frm_CapNhatNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +145,12 @@
     <Compile Include="Form\frm_ThietBiTrongPhong.Designer.cs">
       <DependentUpon>frm_ThietBiTrongPhong.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\frm_DoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frm_DoiMatKhau.Designer.cs">
+      <DependentUpon>frm_DoiMatKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\Program.cs" />
     <Compile Include="Dao\NhanVien_DAO.cs" />
     <Compile Include="Class\NhanVien_Class.cs" />
@@ -159,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Form_ThongTinSinhVien.resx">
       <DependentUpon>Form_ThongTinSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frm_DoiMatKhau.resx">
+      <DependentUpon>frm_DoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\frm_NhanVien.resx">
       <DependentUpon>frm_NhanVien.cs</DependentUpon>
@@ -209,6 +220,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Query data\Nhóm07_Quản_Lý_Ký_Túc_Xá.sql" />
+    <None Include="Resources\icons8-account-32.png" />
     <None Include="Resources\search-icon.png" />
     <None Include="Resources\user-groups.png" />
     <None Include="Resources\female-user.png" />
@@ -229,6 +241,8 @@
     <None Include="Resources\add-icon.png" />
     <None Include="Resources\back-icon.png" />
     <None Include="Resources\account-icon.png" />
+    <None Include="Resources\company.png" />
+    <None Include="Resources\account-50.png" />
     <Content Include="Resources\device-icon.png" />
     <None Include="Resources\Files-icon.png" />
     <None Include="Resources\setting.png" />

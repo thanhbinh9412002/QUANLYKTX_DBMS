@@ -59,5 +59,47 @@ namespace QuanLyKTX.DAO
             object sl = cnn.executeScalar(sql, sqlParameters);
             return Convert.ToString(sl);
         }
+        public string TongSoTaiKhoan()
+        {
+            const string sql = "select count(TenTaiKhoan) from TaiKhoan";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            object sl = cnn.executeScalar(sql, sqlParameters);
+            return Convert.ToString(sl);
+        }
+        public string TongSoToa()
+        {
+            const string sql = "select count(TenToa) from Toa";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            object sl = cnn.executeScalar(sql, sqlParameters);
+            return Convert.ToString(sl);
+        }
+        public string SoLuongPhongTrong()
+        {
+            const string sql = "select count(MaPhong) from Phong where SoLuongSinhVienHienTai < SoLuongSinhVienToiDa";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            object sl = cnn.executeScalar(sql, sqlParameters);
+            return Convert.ToString(sl);
+        }
+        public string SoLuongPhongDu()
+        {
+            const string sql = "select count(MaPhong) from Phong where SoLuongSinhVienHienTai = SoLuongSinhVienToiDa";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            object sl = cnn.executeScalar(sql, sqlParameters);
+            return Convert.ToString(sl);
+        }
+        public string SoLuongThietBiHong()
+        {
+            const string sql = "select sum(SoLuongHong) from ThietBiTrongPhong";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            object sl = cnn.executeScalar(sql, sqlParameters);
+            return Convert.ToString(sl);
+        }
+        public string TongSoLuongThietBi()
+        {
+            const string sql = "select sum(TongSoLuong) from TrangThietBi";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            object sl = cnn.executeScalar(sql, sqlParameters);
+            return Convert.ToString(sl);
+        }
     }
 }

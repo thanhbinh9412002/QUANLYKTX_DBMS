@@ -40,14 +40,16 @@ namespace QuanLyKTX
 
         private void btn_them_Click(object sender, EventArgs e)
         {
-            fmCapNhat.tmp = 0;
             this.Hide();
+            fmCapNhat = new frm_CapNhatNhanVien(user, role);
+            fmCapNhat.tmp = 0;
             fmCapNhat.ShowDialog();
-            
+            this.Show();
         }
 
         private void btn_sua_Click(object sender, EventArgs e)
         {
+            fmCapNhat = new frm_CapNhatNhanVien(user, role);
             if (sukien == 1)
             {
                 fmCapNhat.MaNhanVien = MaNhanVien1;
@@ -62,7 +64,7 @@ namespace QuanLyKTX
                 fmCapNhat.tmp = 1;
                 this.Hide();
                 fmCapNhat.ShowDialog();
-                this.Close();
+                this.Show();
             }
             else 
             {
@@ -129,14 +131,6 @@ namespace QuanLyKTX
                 ChucVu1 = Convert.ToString(dgvNhanVien.CurrentRow.Cells["ChucVu"].Value);
                 MaNQL1 = Convert.ToString(dgvNhanVien.CurrentRow.Cells["MaNQL"].Value);
                 sukien = 1;
-            }
-        }
-
-        private void frm_NhanVien_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (MessageBox.Show("Bạn có chắc là muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-            {
-                e.Cancel = true;
             }
         }
     }
