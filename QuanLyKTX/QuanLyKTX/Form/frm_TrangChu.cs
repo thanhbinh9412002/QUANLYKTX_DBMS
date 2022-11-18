@@ -23,6 +23,7 @@ namespace QuanLyKTX
         private string user;
         private string role;
 
+
         //-----------//Hiệu ứng//------------//
 
         public bool kt_caidat = true;    // biến dùng lưu sự kiện đóng tắt pannel cài đặt
@@ -83,6 +84,7 @@ namespace QuanLyKTX
 
         private void btn_TrangChu_Click(object sender, EventArgs e)  // sự kiện khi nhấn nút trang chủ
         {
+            TrangChu_BUS tcBUS = new TrangChu_BUS();
             if (kt_trangchu)
             {
                 pictureBox1.Visible = false;
@@ -94,11 +96,18 @@ namespace QuanLyKTX
                 {
                     panel_taikhoan.Visible = false;
                     panel_toa.Visible = false;
+                    
                 }
                 else
                 {
                     panel_taikhoan.Visible = true;
                     panel_toa.Visible = true;
+                    lb_nvnam.Text = Convert.ToString(tcBUS.TimSoLuongNhanVienTheoGioiTinh("Nam"));
+                    lb_nvnu.Text = Convert.ToString(tcBUS.TimSoLuongNhanVienTheoGioiTinh("Nữ"));
+                    lb_nvtong.Text = Convert.ToString(tcBUS.TongSoNhanVien());
+                    lb_svnam.Text = Convert.ToString(tcBUS.TimSoLuongSinhVienTheoGioiTinh("Nam"));
+                    lb_svnu.Text = Convert.ToString(tcBUS.TimSoLuongSinhVienTheoGioiTinh("Nữ"));
+                    lb_svtong.Text = Convert.ToString(tcBUS.TongSoSinhVien());
                 }
                 kt_trangchu = false;
             }
@@ -124,7 +133,7 @@ namespace QuanLyKTX
 
         private void btn_SinhVien_Click(object sender, EventArgs e)  // chuyển sang form sinh viên
         {
-
+            
         }
 
         private void btn_NhanVien_Click(object sender, EventArgs e)  // chuyển sang form nhân viên

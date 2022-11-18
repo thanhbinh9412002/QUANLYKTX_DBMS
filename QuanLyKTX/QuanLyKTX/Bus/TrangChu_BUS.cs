@@ -20,5 +20,21 @@ namespace QuanLyKTX.BUS
         {
             return tcDAO.TimMaNhanVien(CMND_CCCD);
         }
+        public int TimSoLuongNhanVienTheoGioiTinh(string gioitinh)
+        {
+            return tcDAO.TimSoLuongNhanVienTheoGioiTinh(gioitinh);
+        }
+        public string TongSoNhanVien()
+        {
+            return tcDAO.TongSoNhanVien();
+        }
+        public int TimSoLuongSinhVienTheoGioiTinh(string gioitinh)
+        {
+            return tcDAO.TimSoLuongSinhVienTheoGioiTinh(gioitinh);
+        }
+        public string TongSoSinhVien()
+        {
+            return tcDAO.TongSoSinhVien();
+        }
     }
 }

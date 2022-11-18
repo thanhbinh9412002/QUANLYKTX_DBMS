@@ -113,6 +113,16 @@ namespace QuanLyKTX.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap female_user {
+            get {
+                object obj = ResourceManager.GetObject("female-user", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Files_icon {
             get {
                 object obj = ResourceManager.GetObject("Files-icon", resourceCulture);
@@ -316,6 +326,26 @@ namespace QuanLyKTX.Properties {
         internal static System.Drawing.Bitmap Student_icon {
             get {
                 object obj = ResourceManager.GetObject("Student-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_groups {
+            get {
+                object obj = ResourceManager.GetObject("user-groups", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_male {
+            get {
+                object obj = ResourceManager.GetObject("user-male", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
