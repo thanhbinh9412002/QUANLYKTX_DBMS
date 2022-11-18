@@ -131,15 +131,13 @@ namespace QuanLyKTX
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.BackColor = System.Drawing.Color.Cyan;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(313, 9);
+            this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(361, 38);
+            this.label1.Size = new System.Drawing.Size(952, 38);
             this.label1.TabIndex = 1;
             this.label1.Text = "NHÂN VIÊN";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -149,7 +147,6 @@ namespace QuanLyKTX
             this.btn_quaylai.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn_quaylai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_quaylai.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_quaylai.Image = global::QuanLyKTX.Properties.Resources.back_icon;
             this.btn_quaylai.Location = new System.Drawing.Point(676, 352);
             this.btn_quaylai.Name = "btn_quaylai";
             this.btn_quaylai.Size = new System.Drawing.Size(90, 52);
@@ -164,7 +161,6 @@ namespace QuanLyKTX
             this.btn_xoa.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn_xoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_xoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_xoa.Image = global::QuanLyKTX.Properties.Resources.remove_icon;
             this.btn_xoa.Location = new System.Drawing.Point(537, 352);
             this.btn_xoa.Name = "btn_xoa";
             this.btn_xoa.Size = new System.Drawing.Size(90, 52);
@@ -179,7 +175,6 @@ namespace QuanLyKTX
             this.btn_sua.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn_sua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_sua.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_sua.Image = global::QuanLyKTX.Properties.Resources.setting;
             this.btn_sua.Location = new System.Drawing.Point(394, 352);
             this.btn_sua.Name = "btn_sua";
             this.btn_sua.Size = new System.Drawing.Size(90, 52);
@@ -195,7 +190,6 @@ namespace QuanLyKTX
             this.btn_them.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_them.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_them.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_them.Image = global::QuanLyKTX.Properties.Resources.add_icon;
             this.btn_them.Location = new System.Drawing.Point(256, 352);
             this.btn_them.Name = "btn_them";
             this.btn_them.Size = new System.Drawing.Size(90, 52);

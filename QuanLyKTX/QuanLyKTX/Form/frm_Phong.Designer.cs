@@ -234,7 +234,7 @@
             // btnPhongConCho
             // 
             this.btnPhongConCho.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPhongConCho.Image = global::QuanLyKTX.Properties.Resources.search_icon;
+            //this.btnPhongConCho.Image = global::QuanLyKTX.Properties.Resources.search_icon;
             this.btnPhongConCho.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPhongConCho.Location = new System.Drawing.Point(390, 424);
             this.btnPhongConCho.Margin = new System.Windows.Forms.Padding(2);
@@ -279,7 +279,7 @@
             // btnTimKiemPhongDay
             // 
             this.btnTimKiemPhongDay.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimKiemPhongDay.Image = global::QuanLyKTX.Properties.Resources.search_icon;
+            //this.btnTimKiemPhongDay.Image = global::QuanLyKTX.Properties.Resources.search_icon;
             this.btnTimKiemPhongDay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTimKiemPhongDay.Location = new System.Drawing.Point(147, 424);
             this.btnTimKiemPhongDay.Margin = new System.Windows.Forms.Padding(2);
