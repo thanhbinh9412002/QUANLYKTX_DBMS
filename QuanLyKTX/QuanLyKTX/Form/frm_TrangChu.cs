@@ -18,6 +18,9 @@ namespace QuanLyKTX
         public frm_NhanVien fmNhanVien;
         public frm_Toa fmToa;
         public frm_Phong fmPhong;
+        public frm_HoaDon fmHoaDon;
+        public frm_SinhVien fmSinhVien;
+        public frm_ThietBi fmThietBi;
         //public frm_Phong fmPhong;
         public string MNV = null;                   // Mã của người quản lý, dùng cho các form sau, gọi MNV là sẽ ra;
         public string CMND_CCCD = null;
@@ -121,7 +124,9 @@ namespace QuanLyKTX
 
         private void btn_HoaDon_Click(object sender, EventArgs e)  // chuyển sang form hóa đơn
         {
-            
+            fmHoaDon = new frm_HoaDon();
+            fmHoaDon.nv = MNV;
+            fmHoaDon.ShowDialog();
         }
 
         private void btn_Toa_Click(object sender, EventArgs e)  // chuyển sang form tòa
@@ -134,7 +139,9 @@ namespace QuanLyKTX
 
         private void btn_SinhVien_Click(object sender, EventArgs e)  // chuyển sang form sinh viên
         {
-            
+            fmSinhVien = new frm_SinhVien();
+            fmSinhVien.nv = MNV;
+            fmSinhVien.ShowDialog();
         }
 
         private void btn_NhanVien_Click(object sender, EventArgs e)  // chuyển sang form nhân viên

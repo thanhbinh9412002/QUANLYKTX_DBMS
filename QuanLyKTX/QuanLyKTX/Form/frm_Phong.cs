@@ -16,6 +16,7 @@ namespace QuanLyKTX
         private Phong_BUS PhongBUS;
         public frm_TrangChu fmtrangch;
         public frm_ChiTietPhong fmChiTietPhong;
+        public frm_ThietBiTrongPhong fmThietBiTrongPhong;
         public string matoa;
         private string user;
         private string role;
@@ -185,6 +186,17 @@ namespace QuanLyKTX
             fmChiTietPhong.manql = manv;
             fmChiTietPhong.toa = matoa;
             fmChiTietPhong.ShowDialog();
+            this.Show();
+        }
+
+        private void btnThietBiTrongPhong_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            fmThietBiTrongPhong = new frm_ThietBiTrongPhong();
+            fmThietBiTrongPhong.maphong = mp;
+            fmThietBiTrongPhong.manql = manv;
+            fmThietBiTrongPhong.toa = matoa;
+            fmThietBiTrongPhong.ShowDialog();
             this.Show();
         }
     }

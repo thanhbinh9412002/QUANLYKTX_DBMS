@@ -63,10 +63,16 @@
   <ItemGroup>
     <Compile Include="Bus\ChiTietPhong_BUS.cs" />
     <Compile Include="Bus\DangNhap_BUS.cs" />
+    <Compile Include="Bus\HoaDon_BUS.cs" />
     <Compile Include="Bus\Phong_BUS.cs" />
+    <Compile Include="Bus\SinhVien_BUS.cs" />
+    <Compile Include="Bus\ThietBiTrongPhong_BUS.cs" />
     <Compile Include="Bus\Toa_BUS.cs" />
     <Compile Include="Dao\ChiTietPhong_DAO.cs" />
+    <Compile Include="Dao\HoaDon_DAO.cs" />
     <Compile Include="Dao\Phong_DAO.cs" />
+    <Compile Include="Dao\SinhVien_DAO.cs" />
+    <Compile Include="Dao\ThietBiTrongPhong_DAO.cs" />
     <Compile Include="Dao\Toa_DAO.cs" />
     <Compile Include="Form\frm_CapNhatNhanVien.cs">
       <SubType>Form</SubType>
@@ -101,12 +107,6 @@
     <Compile Include="Form\frm_NhanVien.Designer.cs">
       <DependentUpon>frm_NhanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\frm_HoaDon.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form\frm_HoaDon.Designer.cs">
-      <DependentUpon>frm_HoaDon.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form\frm_Toa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +124,24 @@
     </Compile>
     <Compile Include="Form\frm_ChiTietPhong.Designer.cs">
       <DependentUpon>frm_ChiTietPhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frm_HoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frm_HoaDon.Designer.cs">
+      <DependentUpon>frm_HoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frm_SinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frm_SinhVien.Designer.cs">
+      <DependentUpon>frm_SinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frm_ThietBiTrongPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frm_ThietBiTrongPhong.Designer.cs">
+      <DependentUpon>frm_ThietBiTrongPhong.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\Program.cs" />
     <Compile Include="Dao\NhanVien_DAO.cs" />
@@ -145,6 +163,9 @@
     <EmbeddedResource Include="Form\frm_NhanVien.resx">
       <DependentUpon>frm_NhanVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\frm_SinhVien.resx">
+      <DependentUpon>frm_SinhVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\frm_TrangChu.resx">
       <DependentUpon>frm_TrangChu.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,6 +177,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\frm_ChiTietPhong.resx">
       <DependentUpon>frm_ChiTietPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frm_HoaDon.resx">
+      <DependentUpon>frm_HoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frm_ThietBiTrongPhong.resx">
+      <DependentUpon>frm_ThietBiTrongPhong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
