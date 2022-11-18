@@ -20,6 +20,7 @@ namespace QuanLyKTX
         private string user;
         private string role;
         public string mp;
+        public string manv;
         public frm_Phong(string user = "", string role = "")
         {
             InitializeComponent();
@@ -42,9 +43,9 @@ namespace QuanLyKTX
         }
         public void LoadDataUser()
         {
-/*            dgvPhong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvPhong.DataSource = PhongBUS.GetAllInformation(nv);
-            LoadTextBox();*/
+            dgvPhong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPhong.DataSource = PhongBUS.GetAllInformation(manv);
+            LoadTextBox();
 
         }
         private void frm_Phong_Load(object sender, EventArgs e)
@@ -57,6 +58,11 @@ namespace QuanLyKTX
                 btnThem.Enabled = false;
                 btnXoa.Enabled = false;
             }
+            else
+            {
+                LoadDataUser();
+                gbThongTinPhong.Enabled = false;
+            }    
         }
         public static bool them = true;
         private void btnThem_Click(object sender, EventArgs e)
@@ -75,8 +81,7 @@ namespace QuanLyKTX
             {
                 PhongBUS.AddPhong(txtMaPhong.Text, txtToa.Text, int.Parse(txtSVHienTai.Text), int.Parse(txtSVToiDa.Text));
             }
-            //LoadDataUser();
-            LoadDataAdmin();
+            LoadDataUser();
             txtMaPhong.Clear();
             txtSVHienTai.Clear();
             txtSVToiDa.Clear();
@@ -95,8 +100,7 @@ namespace QuanLyKTX
                 {
                     PhongBUS.DeletePhong(MaPhong);
                     MessageBox.Show("Xóa thành công");
-                    LoadDataAdmin();
-                    //LoadDataUser();
+                    LoadDataUser();
                 }
                 else
                 {
@@ -116,20 +120,46 @@ namespace QuanLyKTX
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            dgvPhong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvPhong.DataSource = PhongBUS.GetAllInformationToa(matoa);
+            if (role == "Admin")
+            {
+                dgvPhong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvPhong.DataSource = PhongBUS.GetAllInformationToa(matoa);
+            }
+            else
+            {
+                dgvPhong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvPhong.DataSource = PhongBUS.GetAllInformation(manv);
+            }
         }
 
         private void btnTimKiemPhongDay_Click(object sender, EventArgs e)
         {
-            dgvPhong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvPhong.DataSource = PhongBUS.PhongDay(matoa);
+            if (role == "Admin")
+            {
+                dgvPhong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvPhong.DataSource = PhongBUS.PhongDay(matoa);
+            }
+            else
+            {
+                string tentoa = txtToa.Text;
+                dgvPhong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvPhong.DataSource = PhongBUS.PhongDay(tentoa);
+            }
         }
 
         private void btnPhongConCho_Click(object sender, EventArgs e)
         {
-            dgvPhong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvPhong.DataSource = PhongBUS.PhongConCho(matoa);
+            if (role == "Admin")
+            {
+                dgvPhong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvPhong.DataSource = PhongBUS.PhongConCho(matoa);
+            }
+            else
+            {
+                string tentoa = txtToa.Text;
+                dgvPhong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvPhong.DataSource = PhongBUS.PhongConCho(tentoa);
+            }
         }
         private void btnThoat_Click(object sender, EventArgs e)
         {
@@ -144,6 +174,7 @@ namespace QuanLyKTX
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 mp = Convert.ToString(dgvPhong.CurrentRow.Cells["MaPhong"].Value);
+                matoa = Convert.ToString(dgvPhong.CurrentRow.Cells["Toa"].Value);
             }
         }
         private void btnChiTietPhong_Click(object sender, EventArgs e)
@@ -151,6 +182,8 @@ namespace QuanLyKTX
             this.Hide();
             fmChiTietPhong = new frm_ChiTietPhong();
             fmChiTietPhong.maphong = mp;
+            fmChiTietPhong.manql = manv;
+            fmChiTietPhong.toa = matoa;
             fmChiTietPhong.ShowDialog();
             this.Show();
         }

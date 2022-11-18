@@ -23,9 +23,5 @@ namespace QuanLyKTX.Bus
         {
             return ChiTietPhongDAO.GetComboBox(matoa);
         }
-        public string MaToa(string manql)
-        {
-            return ChiTietPhongDAO.MaToa(manql);
-        }
     }
 }

@@ -16,15 +16,13 @@ namespace QuanLyKTX
         private ChiTietPhong_BUS ChiTietPhongBUS;
         public frm_Phong frmPhong;
         public string maphong = null;
-        public string matoa;
+        public string toa;
         public string manql;
         public frm_ChiTietPhong()
         {
             InitializeComponent();
             frmPhong = new frm_Phong();
             ChiTietPhongBUS = new ChiTietPhong_BUS();
-            //manql = frmPhong.nv;
-            //matoa = ChiTietPhongBUS.MaToa(manql);
         }
         public void LoadData()
         {
@@ -33,9 +31,9 @@ namespace QuanLyKTX
         }
         public void LoadComboBox()
         {
-            /*cbbPhong.DataSource = ChiTietPhongBUS.GetComboBox(matoa);
+            cbbPhong.DataSource = ChiTietPhongBUS.GetComboBox(toa);
             cbbPhong.DisplayMember = "MaPhong";
-            cbbPhong.ValueMember = "MaPhong";*/
+            cbbPhong.ValueMember = "MaPhong";
 
         }
         private void frm_ChiTietPhong_Load(object sender, EventArgs e)
