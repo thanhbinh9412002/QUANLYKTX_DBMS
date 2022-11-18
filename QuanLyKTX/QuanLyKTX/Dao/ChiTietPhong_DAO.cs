@@ -25,19 +25,10 @@ namespace QuanLyKTX.Dao
         }
         public DataTable GetComboBox(string matoa)
         {
-            string sql = "pro_DanhSachPhongTheoToa";
+            string sql = "pro_DanhSachPhongTheoToa_MaPhong";
             string[] pNames = { "@matoa" };
             object[] pvalues = { matoa };
             return cnn.ExecuteProcedureDatatable(sql, pNames, pvalues);
-        }
-        public string MaToa(string manql)
-        {
-            string matoa = "Select TenToa from Toa Where MaNguoiQuanLy = @manql";
-            SqlParameter[] sqlParameters = new SqlParameter[1];
-            sqlParameters[0] = new SqlParameter("@manql", System.Data.SqlDbType.VarChar);
-            sqlParameters[0].Value = Convert.ToString(manql);
-            object TenToa = cnn.executeScalar(matoa, sqlParameters);
-            return Convert.ToString(TenToa);
         }
     }
 }
