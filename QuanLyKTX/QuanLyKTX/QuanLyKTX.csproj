@@ -209,6 +209,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Query data\Nhóm07_Quản_Lý_Ký_Túc_Xá.sql" />
+    <None Include="Resources\search-icon1.png" />
     <None Include="Resources\search-icon.png" />
     <None Include="Resources\user-groups.png" />
     <None Include="Resources\female-user.png" />
