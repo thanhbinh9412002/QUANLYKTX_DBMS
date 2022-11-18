@@ -229,6 +229,7 @@
     <None Include="Resources\add-icon.png" />
     <None Include="Resources\back-icon.png" />
     <None Include="Resources\account-icon.png" />
+    <Content Include="Query data\HD_SV_TTB_function_procedure.sql" />
     <Content Include="Resources\device-icon.png" />
     <None Include="Resources\Files-icon.png" />
     <None Include="Resources\setting.png" />
