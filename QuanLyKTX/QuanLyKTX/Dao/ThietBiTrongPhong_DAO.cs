@@ -25,7 +25,7 @@ namespace QuanLyKTX.Dao
         public DataTable GetIdEq()
         {
             SqlParameter[] sqlParameters = new SqlParameter[0];
-            return cnn.executeReader("select * from func_ThietBiQuanLy()", sqlParameters);
+            return cnn.executeReader("select * from func_MaThietBi()", sqlParameters);
         }
         public void AddEqRoom(string matb, string maphong, int slhong, int sltot, int sltoida)
         {
