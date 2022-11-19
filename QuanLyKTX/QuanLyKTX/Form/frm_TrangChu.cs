@@ -21,6 +21,7 @@ namespace QuanLyKTX
         public frm_HoaDon fmHoaDon;
         public frm_SinhVien fmSinhVien;
         public frm_DoiMatKhau fmDoiMatKhau;
+        public frm_TrangThietBi fmTrangThietBi;
         //public frm_ThietBi fmThietBi;
         //public frm_Phong fmPhong;
         public string MNV = null;                   // Mã của người quản lý, dùng cho các form sau, gọi MNV là sẽ ra;
@@ -165,7 +166,10 @@ namespace QuanLyKTX
 
         private void btn_ThietBi_Click(object sender, EventArgs e)  // chuyển sang form thiết bị
         {
-
+            this.Hide();
+            fmTrangThietBi = new frm_TrangThietBi(user, role);
+            fmTrangThietBi.ShowDialog();
+            this.Show();
         }
 
         private void btn_CaiDat_Click(object sender, EventArgs e)  // sự kiện nhấn button cài đặt để xuất hiện nút đăng xuất và đổi mật khẩu

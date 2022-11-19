@@ -151,6 +151,12 @@
     <Compile Include="Form\frm_DoiMatKhau.Designer.cs">
       <DependentUpon>frm_DoiMatKhau.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_TrangThietBi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_TrangThietBi.Designer.cs">
+      <DependentUpon>frm_TrangThietBi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\Program.cs" />
     <Compile Include="Dao\NhanVien_DAO.cs" />
     <Compile Include="Class\NhanVien_Class.cs" />
@@ -159,6 +165,9 @@
     <Compile Include="Class\TrangChu_Class.cs" />
     <Compile Include="Bus\TrangChu_BUS.cs" />
     <Compile Include="Dao\TrangChu_DAO.cs" />
+    <Compile Include="Bus\TrangThietBi_BUS.cs" />
+    <Compile Include="Class\TrangThietBi_Class.cs" />
+    <Compile Include="Dao\TrangThietBi_DAO.cs" />
     <EmbeddedResource Include="Form\frm_CapNhatNhanVien.resx">
       <DependentUpon>frm_CapNhatNhanVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\frm_ThietBiTrongPhong.resx">
       <DependentUpon>frm_ThietBiTrongPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_TrangThietBi.resx">
+      <DependentUpon>frm_TrangThietBi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

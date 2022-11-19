@@ -15,7 +15,7 @@ namespace QuanLyKTX.DataProvider
         //SqlConnection cnnStr = new SqlConnection(@"Data Source=THANHBINH\SQLEXPRESS;Initial Catalog=QuanLyKTX;Integrated Security=True");
         //SqlConnection cnnStr = new SqlConnection(@"Data Source=DESKTOP-JBR423G;Initial Catalog=QuanLyKTX;Integrated Security=True");
 
-        //SqlConnection cnnStr = new SqlConnection(@"Data Source=THANHBINH\SQLEXPRESS;Initial Catalog=QuanLyKTX;Integrated Security=True");
+        SqlConnection cnnStr = new SqlConnection(@"Data Source=THANHBINH\SQLEXPRESS;Initial Catalog=QuanLyKTX;Integrated Security=True");
         //SqlConnection cnnStr = new SqlConnection(@"Data Source=LAPTOP-MB5F72F2\SQLEXPRESS;Initial Catalog=QuanLyKTX;Integrated Security=True");
         private SqlDataAdapter adapter;
         private SqlConnection connection;
@@ -33,7 +33,7 @@ namespace QuanLyKTX.DataProvider
             return connection;
         }
 
-        public void executeInsertQuery(String query, SqlParameter[] sqlParameter)
+       /* public void executeInsertQuery(String query, SqlParameter[] sqlParameter)
         {
             using (SqlCommand sqlCommand = new SqlCommand(query, openConnection()))
             {
@@ -52,7 +52,7 @@ namespace QuanLyKTX.DataProvider
                     connection.Close();
                 }
             }
-        }
+        }*/
 
         public object executeScalar(String query, SqlParameter[] sqlParameter)
         {
@@ -122,8 +122,8 @@ namespace QuanLyKTX.DataProvider
             }
         }
         public DataTable ExecuteProcedureDatatableNoPara(string spName) //trả về 1 bảng khi gọi procedure bên sql
-
         {
+
             openConnection();
             // Khai báo và khởi tạo đối tượng Command với tham số tên thủ tục spName
             SqlCommand cmd = new SqlCommand(spName, connection);
@@ -135,14 +135,14 @@ namespace QuanLyKTX.DataProvider
             return dt;
 
         }
-        public int executeCount(string query)           // trả về số lượng 
+       /* public string executeCount(string query)           // trả về số lượng 
         {
-            int cout = 0;
+            string cout = null ;
             using (SqlCommand sqlCommand = new SqlCommand(query, openConnection()))
             {
                 try
                 {
-                    cout = (Int32)sqlCommand.ExecuteScalar();
+                    cout = (string)sqlCommand.ExecuteScalar();
                 }
                 catch (Exception ex)
                 {
@@ -154,7 +154,7 @@ namespace QuanLyKTX.DataProvider
                 }
                 return cout;
             }
-        }
+        }*/
 
         public DataTable executeLoadData(string query)      // trả về bảng dữ liệu
         {
@@ -203,6 +203,32 @@ namespace QuanLyKTX.DataProvider
             cmd.Parameters.Add(n);
             cmd.ExecuteScalar();
             kq = (Int32)n.Value;
+            connection.Close();
+            return kq;
+        }
+
+        public string ExecuteStoredProcedureString(string spName, string[] pNames, object[] pValues) //trả về 1 giá trị khi gọi procedure bên sql
+
+        {
+            string kq = "";
+            openConnection();
+            // Khai báo và khởi tạo đối tượng Command với tham số tên thủ tục spName
+            SqlCommand cmd = new SqlCommand(spName, connection);
+            // Khai báo kiểu thủ tục
+            cmd.CommandType = CommandType.StoredProcedure;
+            // Khai báo tham số SqlParameter
+            SqlParameter p;
+            // Khởi tạo danh sách các tham số với giá trị tương ứng
+            for (int i = 0; i < pNames.Length; i++)
+            {
+                p = new SqlParameter(pNames[i], pValues[i]);
+                cmd.Parameters.Add(p);
+            }
+            SqlParameter n = new SqlParameter("@kq", SqlDbType.VarChar);
+            n.Direction = ParameterDirection.ReturnValue;
+            cmd.Parameters.Add(n);
+            cmd.ExecuteScalar();
+            kq = Convert.ToString(n.Value);
             connection.Close();
             return kq;
         }

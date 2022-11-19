@@ -898,6 +898,12 @@ returns table
 					nv1.MaNQL
 				from NhanVien nv1 , NhanVien nv2
 				where nv1.MaNQL = nv2.MaNhanVien and nv1.MaNQL = @MaNQL
-				
+go
+
+create function [dbo].[func_DanhSachTatCaTrangThietBi]()
+returns table
+	as
+		return
+			select * from TrangThietBi
 
 
