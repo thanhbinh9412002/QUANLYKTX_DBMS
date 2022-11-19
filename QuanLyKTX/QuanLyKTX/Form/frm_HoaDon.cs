@@ -155,5 +155,10 @@ namespace QuanLyKTX
             dgvHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvHoaDon.DataSource = HdBUS.UnpaidInvoice(nv);
         }
+
+        private void btnLoc_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

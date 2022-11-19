@@ -100,3 +100,12 @@ E:\GitHub\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\bin\Debug\QuanLyKTX.Ver2.exe
 E:\GitHub\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\bin\Debug\QuanLyKTX.Ver2.pdb
 E:\GitHub\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\obj\Debug\QuanLyKTX.Ver2.exe
 E:\GitHub\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\obj\Debug\QuanLyKTX.Ver2.pdb
+F:\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\bin\Debug\QuanLyKTX.Ver2.exe.config
+F:\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\bin\Debug\QuanLyKTX.Ver2.exe
+F:\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\bin\Debug\QuanLyKTX.Ver2.pdb
+F:\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\obj\Debug\QuanLyKTX.frm_DoiMatKhau.resources
+F:\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\obj\Debug\QuanLyKTX.frm_SinhVien.resources
+F:\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\obj\Debug\QuanLyKTX.frm_HoaDon.resources
+F:\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\obj\Debug\QuanLyKTX.frm_ThietBiTrongPhong.resources
+F:\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\obj\Debug\QuanLyKTX.Ver2.exe
+F:\QUANLYKTX_DBMS\QuanLyKTX\QuanLyKTX\obj\Debug\QuanLyKTX.Ver2.pdb
