@@ -12,9 +12,6 @@ namespace QuanLyKTX.DataProvider
 
     public class DBConnection
     {
-        //SqlConnection cnnStr = new SqlConnection(@"Data Source=THANHBINH\SQLEXPRESS;Initial Catalog=QuanLyKTX;Integrated Security=True");
-        SqlConnection cnnStr = new SqlConnection(@"Data Source=DESKTOP-JBR423G;Initial Catalog=QuanLyKTX_2;Integrated Security=True");
-
         SqlConnection cnnStr = new SqlConnection(@"Data Source=THANHBINH\SQLEXPRESS;Initial Catalog=QuanLyKTX;Integrated Security=True");
         //SqlConnection cnnStr = new SqlConnection(@"Data Source=LAPTOP-MB5F72F2\SQLEXPRESS;Initial Catalog=QuanLyKTX;Integrated Security=True");
         private SqlDataAdapter adapter;
@@ -77,7 +74,7 @@ namespace QuanLyKTX.DataProvider
             }
         }
 
-        internal DataTable ExecuteProcedureDatatable(string spName, string[] pNames, object[] pValues)
+        public DataTable ExecuteProcedureDatatable(string spName, string[] pNames, object[] pValues)
         {
             openConnection();
             // Khai báo và khởi tạo đối tượng Command với tham số tên thủ tục spName
@@ -206,32 +203,6 @@ namespace QuanLyKTX.DataProvider
             connection.Close();
             return kq;
         }
-        public string ExecuteStoredProcedureString(string spName, string[] pNames, object[] pValues) //trả về 1 giá trị khi gọi procedure bên sql
-
-        {
-            string kq = "";
-            openConnection();
-            // Khai báo và khởi tạo đối tượng Command với tham số tên thủ tục spName
-            SqlCommand cmd = new SqlCommand(spName, connection);
-            // Khai báo kiểu thủ tục
-            cmd.CommandType = CommandType.StoredProcedure;
-            // Khai báo tham số SqlParameter
-            SqlParameter p;
-            // Khởi tạo danh sách các tham số với giá trị tương ứng
-            for (int i = 0; i < pNames.Length; i++)
-            {
-                p = new SqlParameter(pNames[i], pValues[i]);
-                cmd.Parameters.Add(p);
-            }
-            SqlParameter n = new SqlParameter("@kq", SqlDbType.VarChar);
-            n.Direction = ParameterDirection.ReturnValue;
-            cmd.Parameters.Add(n);
-            cmd.ExecuteScalar();
-            kq = Convert.ToString(n.Value);
-            connection.Close();
-            return kq;
-        }
-
         public string ExecuteStoredProcedureString(string spName, string[] pNames, object[] pValues) //trả về 1 giá trị khi gọi procedure bên sql
 
         {

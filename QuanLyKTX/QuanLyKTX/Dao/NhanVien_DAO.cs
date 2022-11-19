@@ -20,20 +20,17 @@ namespace QuanLyKTX.DAO
 
         public DataTable DanhSachNhanVien()
         {
-            const string sql = "select * from NhanVien";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            DataTable dt = new DataTable();
-            dt = conn.executeReader(sql, sqlParameters);
-            return dt;
+            string spName = "[dbo].[proc_Danhsachnhanvien]";
+            return conn.ExecuteProcedureDatatableNoPara(spName);
         }
-        public DataTable TimNhanVien(string MaNV)
+        /*public DataTable TimNhanVien(string MaNV)
         {
             const string sql = "select * from NhanVien where MaNhanVien = @MaNV";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             DataTable dt = new DataTable();
             dt = conn.executeReader(sql, sqlParameters);
             return dt;
-        }
+        }*/
         public int SuaNhanVien(NhanVien nv)
         {
             string spName = "[dbo].[proc_SuaNhanVien]";
@@ -60,18 +57,16 @@ namespace QuanLyKTX.DAO
         }
         public DataTable Lay_Ma_Nguoi_Quan_Ly()
         {
-            string sql = "select MaNhanVien from NhanVien where ChucVu = N'Quản lý'";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            DataTable mnv = new DataTable();
-            mnv = conn.executeReader(sql, sqlParameters);
-            return mnv;
+            string spName = "[dbo].[proc_LayMaNGQL]";
+            return conn.ExecuteProcedureDatatableNoPara(spName);
         }
         public string Lay_Ma_Nhan_Vien()
         {
-            const string sql = "select max(MaNhanVien) from NhanVien";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            object mnhanvien = conn.executeScalar(sql, sqlParameters);
-            return Convert.ToString(mnhanvien);
+            string spName = "[dbo].[func_LayMaNV]";
+            string[] pNames = { };
+            object[] pValues = { };
+            string count = conn.ExecuteStoredProcedureString(spName, pNames, pValues);
+            return count;
         }
     }
 }

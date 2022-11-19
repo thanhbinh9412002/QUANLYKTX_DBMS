@@ -20,10 +20,10 @@ namespace QuanLyKTX
         {
             return nvDAO.DanhSachNhanVien();
         }
-        public DataTable TimNhanVien(string MaNV)
+        /*public DataTable TimNhanVien(string MaNV)
         {
             return nvDAO.TimNhanVien(MaNV);
-        }
+        }*/
         public int SuaNhanVien(NhanVien nv)
         {
             return nvDAO.SuaNhanVien(nv);
