@@ -22,7 +22,7 @@ namespace QuanLyKTX
         {
             InitializeComponent();
             frmPhong = new frm_Phong(); 
-            maphong = frmPhong.mp;
+            //maphong = frmPhong.mp;
             TbBUS = new ThietBiTrongPhong_BUS();
         }
         public void LoadData()
@@ -38,10 +38,16 @@ namespace QuanLyKTX
             gbThongTinThietBi.Enabled = false;
             btnLuu.Enabled = false;
         }
-
+        public bool check = true;
         private void btnThem_Click(object sender, EventArgs e)
         {
-            txtMaPhong.Text = maphong;
+            if (check)
+            {
+                txtMaPhong.Text = maphong;
+            }else
+            {
+                txtMaPhong.Text = cbbMaPhongTimKiem.Text;
+            }
             txtMaPhong.Enabled = false;
 
             cbbMaThietBi.DataSource = TbBUS.GetIdEq();
@@ -68,7 +74,15 @@ namespace QuanLyKTX
             {
                 TbBUS.UpdateEqRoom(cbbMaThietBi.Text, txtMaPhong.Text, int.Parse(txtSoLuongHong.Text), int.Parse(txtSoLuongTot.Text), int.Parse(txtSoLuongToiDa.Text));
             }
-            LoadData();
+            if (check)
+            {
+                LoadData();
+            }
+            else
+            {
+                dgvThietBi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvThietBi.DataSource = TbBUS.GetAllInformation(cbbMaPhongTimKiem.Text);
+            }
             btnLuu.Enabled = false;
             btnThem.Enabled = true;
             btnXoa.Enabled = true;
@@ -84,7 +98,15 @@ namespace QuanLyKTX
             string maphong = dgvThietBi.Rows[r].Cells[1].Value.ToString();
             TbBUS.DeleteEqRoom(matb, maphong);
             MessageBox.Show("Xóa thành công");
-            LoadData();
+            if (check)
+            {
+                LoadData();
+            }
+            else
+            {
+                dgvThietBi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvThietBi.DataSource = TbBUS.GetAllInformation(cbbMaPhongTimKiem.Text);
+            }
             btnLoad.Enabled = true;
             btnLuu.Enabled = false;
             btnHuy.Enabled = false;
@@ -129,6 +151,27 @@ namespace QuanLyKTX
         private void btnLoad_Click(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            cbbMaPhongTimKiem.DataSource = TbBUS.GetComboBox(toa);
+            cbbMaPhongTimKiem.DisplayMember = "MaPhong";
+            cbbMaPhongTimKiem.ValueMember = "MaPhong";
+        }
+
+        private void cbbMaThietBi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string matb = cbbMaThietBi.Text;
+            txtTenTb.Text = TbBUS.TenThietBi(matb);
+        }
+
+        private void cbbMaPhongTimKiem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            check = false;
+            dgvThietBi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvThietBi.DataSource = TbBUS.GetAllInformation(cbbMaPhongTimKiem.Text);
+            txtMaPhong.Text = cbbMaPhongTimKiem.Text;
         }
     }
 }

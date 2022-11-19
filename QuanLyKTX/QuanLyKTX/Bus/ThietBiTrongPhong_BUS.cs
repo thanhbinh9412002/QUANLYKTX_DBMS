@@ -10,6 +10,7 @@ namespace QuanLyKTX.Bus
     public class ThietBiTrongPhong_BUS
     {
         private ThietBiTrongPhong_DAO TbDao;
+        ChiTietPhong_BUS chiTietPhong = new ChiTietPhong_BUS();
         public ThietBiTrongPhong_BUS()
         {
             TbDao = new ThietBiTrongPhong_DAO();
@@ -33,6 +34,14 @@ namespace QuanLyKTX.Bus
         public void DeleteEqRoom(string ma, string maphong)
         {
             TbDao.DeleteEqRoom(ma, maphong);
+        }
+        public string TenThietBi(string ma)
+        {
+            return TbDao.TenThietBi(ma);
+        }
+        public DataTable GetComboBox(string matoa)
+        {
+            return chiTietPhong.GetComboBox(matoa);
         }
     }
 }

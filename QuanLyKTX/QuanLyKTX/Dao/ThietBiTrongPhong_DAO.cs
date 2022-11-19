@@ -10,6 +10,7 @@ namespace QuanLyKTX.Dao
 {
     public class ThietBiTrongPhong_DAO
     {
+        ChiTietPhong_DAO ChiTietPhong = new ChiTietPhong_DAO();
         private DBConnection cnn = null;
         public ThietBiTrongPhong_DAO()
         {
@@ -50,5 +51,18 @@ namespace QuanLyKTX.Dao
             object[] pvalues = { ma, maphong };
             cnn.ExecuteStoredProcedure_Update(sql, pNames, pvalues);
         }
+        public string TenThietBi(string ma)
+        {
+            string newProdID = "";
+            string sql = "[dbo].[func_TenThietBiTuMa]";
+            string[] pNames = { "@MaThietBi" };
+            object[] pvalues = { ma };
+            newProdID = cnn.ExecuteStoredProcedureString(sql, pNames, pvalues);
+            return newProdID;
+        }
+/*        public DataTable GetComboBox (string matoa)
+        {
+            return ChiTietPhong.GetComboBox(matoa);
+        }*/
     }
 }
