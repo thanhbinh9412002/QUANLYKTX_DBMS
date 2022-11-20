@@ -55,6 +55,7 @@ namespace QuanLyKTX
             LoadData();
             gbThongTinSinhVien.Enabled = false;
             btnLuu.Enabled = false;
+            MessageBox.Show(nv);
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -170,6 +171,11 @@ namespace QuanLyKTX
             string mssv = txtMSSVTimKiem.Text;
             dgvSinhVien.DataSource = SvBUS.SearchStudent(mssv);
             btnLoad.Enabled = true;
+        }
+
+        private void btnLoc_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

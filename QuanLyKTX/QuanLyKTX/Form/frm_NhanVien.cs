@@ -133,5 +133,13 @@ namespace QuanLyKTX
                 sukien = 1;
             }
         }
+
+        private void btnLoc_Click(object sender, EventArgs e)
+        {
+            string chucvu = cbbChucVu.Text;
+            var nvBUS = new NhanVien_BUS();
+            DataTable nv = nvBUS.NhanVien_Chucvu(chucvu);
+            this.dgvNhanVien.DataSource = nv;
+        }
     }
 }

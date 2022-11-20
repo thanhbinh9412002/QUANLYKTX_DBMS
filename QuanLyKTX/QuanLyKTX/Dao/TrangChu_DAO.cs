@@ -19,8 +19,8 @@ namespace QuanLyKTX.DAO
         public string TimMaNhanVien(string CMND_CCCD)
         {
             string MaNV = "";
-            string sql = "[dbo].[proc_TimKiemNhanVien_CMND]";
-            string[] pNames = { "@CMND_CCCD" };
+            string sql = "[dbo].[func_TimKiemNhanVien_CMND]";
+            string[] pNames = { "@CMND_CCCD"};
             object[] pvalues = { CMND_CCCD };
             MaNV = cnn.ExecuteStoredProcedureString(sql, pNames, pvalues);
             return MaNV;
@@ -45,7 +45,7 @@ namespace QuanLyKTX.DAO
         }
         public int TimSoLuongSinhVienTheoGioiTinh(string gioitinh)
         {
-            string spName = "[dbo].[func_SoLuongSinhVienTheoGioiTinh]"; // Tên hàm
+            string spName = "[dbo].[func_SoLuongSinhVienTheoGioiTinh_Admin]"; // Tên hàm
             // Tên các tham số trong thủ tục
             string[] pNames = { "@gioitinh" };
             // Giá trị tương ứng muốn gán cho từng tham số trên

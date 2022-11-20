@@ -136,6 +136,7 @@ namespace QuanLyKTX
             this.btnLoc.TabIndex = 64;
             this.btnLoc.Text = "Loc";
             this.btnLoc.UseVisualStyleBackColor = true;
+            this.btnLoc.Click += new System.EventHandler(this.btnLoc_Click);
             // 
             // txtSoLuong
             // 
