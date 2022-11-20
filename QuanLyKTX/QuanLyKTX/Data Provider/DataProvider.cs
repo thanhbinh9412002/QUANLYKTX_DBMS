@@ -12,9 +12,14 @@ namespace QuanLyKTX.DataProvider
 
     public class DBConnection
     {
+<<<<<<< HEAD
         /*SqlConnection cnnStr = new SqlConnection(@"Data Source=THANHBINH\SQLEXPRESS;Initial Catalog=QuanLyKTX;Integrated Security=True");*/
         //SqlConnection cnnStr = new SqlConnection(@"Data Source=LAPTOP-MB5F72F2\SQLEXPRESS;Initial Catalog=QuanLyKTX;Integrated Security=True");
         SqlConnection cnnStr = new SqlConnection(@"Data Source=DESKTOP-JBR423G;Initial Catalog=QuanLyKTX_2;Integrated Security=True");
+=======
+        //SqlConnection cnnStr = new SqlConnection(@"Data Source=THANHBINH\SQLEXPRESS;Initial Catalog=QuanLyKTX;Integrated Security=True");
+        SqlConnection cnnStr = new SqlConnection(@"Data Source=LAPTOP-MB5F72F2\SQLEXPRESS;Initial Catalog=QuanLyKTX_3;Integrated Security=True");
+>>>>>>> 9d353a796da8cd2f28102a7291d4f385b5156c36
         private SqlDataAdapter adapter;
         private SqlConnection connection;
         public DBConnection()
@@ -31,26 +36,26 @@ namespace QuanLyKTX.DataProvider
             return connection;
         }
 
-       /* public void executeInsertQuery(String query, SqlParameter[] sqlParameter)
-        {
-            using (SqlCommand sqlCommand = new SqlCommand(query, openConnection()))
-            {
-                sqlCommand.CommandType = CommandType.Text;
-                sqlCommand.Parameters.AddRange(sqlParameter);
-                try
-                {
-                    sqlCommand.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
-        }*/
+        /* public void executeInsertQuery(String query, SqlParameter[] sqlParameter)
+         {
+             using (SqlCommand sqlCommand = new SqlCommand(query, openConnection()))
+             {
+                 sqlCommand.CommandType = CommandType.Text;
+                 sqlCommand.Parameters.AddRange(sqlParameter);
+                 try
+                 {
+                     sqlCommand.ExecuteNonQuery();
+                 }
+                 catch (Exception ex)
+                 {
+                     MessageBox.Show(ex.Message);
+                 }
+                 finally
+                 {
+                     connection.Close();
+                 }
+             }
+         }*/
 
         public object executeScalar(String query, SqlParameter[] sqlParameter)
         {

@@ -68,5 +68,16 @@ namespace QuanLyKTX.DAO
             string count = conn.ExecuteStoredProcedureString(spName, pNames, pValues);
             return count;
         }
+
+        public DataTable NhanVien_Chucvu(string chucvu)
+        {
+            string sql = "";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            if (chucvu == "Bảo vệ")
+            {
+                sql = "SELECT * FROM [dbo].[view_NhanVienBaoVe]";
+            }
+            return conn.executeReader(sql, sqlParameters);
+        }
     }
 }

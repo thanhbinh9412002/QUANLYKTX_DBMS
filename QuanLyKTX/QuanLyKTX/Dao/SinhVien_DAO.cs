@@ -24,7 +24,13 @@ namespace QuanLyKTX.Dao
             sqlParameters[0].Value = manv;
             return cnn.executeReader("SELECT * FROM dbo.func_PhongQuanLy(@MaNQL)", sqlParameters);
         }
-
+        //public DataTable GetRoom(string manv)
+        //{
+        //    SqlParameter[] sqlParameters = new SqlParameter[1];
+        //    sqlParameters[0] = new SqlParameter("@MaNQL", System.Data.SqlDbType.Char);
+        //    sqlParameters[0].Value = manv;
+        //    return cnn.executeReader("SELECT * FROM dbo.func_PhongQuanLy(@MaNQL)", sqlParameters);
+        //}
         public DataTable GetAllInformation(string manv)
         {
             SqlParameter[] sqlParameters = new SqlParameter[1];

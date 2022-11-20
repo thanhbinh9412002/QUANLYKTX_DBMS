@@ -26,7 +26,12 @@ namespace QuanLyKTX.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+<<<<<<< HEAD
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-JBR423G;Initial Catalog=QuanLyKTX_2;Integrated Security=True")]
+=======
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-MB5F72F2\\SQLEXPRESS;Initial Catalog=QuanLyKTX_3;Integrated Sec" +
+            "urity=True")]
+>>>>>>> 9d353a796da8cd2f28102a7291d4f385b5156c36
         public string cnnStr {
             get {
                 return ((string)(this["cnnStr"]));

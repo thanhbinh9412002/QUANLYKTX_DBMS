@@ -44,5 +44,9 @@ namespace QuanLyKTX
         {
             return nvDAO.Lay_Ma_Nhan_Vien();
         }
+        public DataTable NhanVien_Chucvu(string chucvu)
+        {
+            return nvDAO.NhanVien_Chucvu(chucvu);
+        }
     }
 }
