@@ -18,12 +18,12 @@ namespace QuanLyKTX.DAO
         }
         public string TimMaNhanVien(string CMND_CCCD)
         {
-            const string sql = "select MaNhanVien from NhanVien where CMND_CCCD = @CMND_CCCD";
-            SqlParameter[] sqlParameters = new SqlParameter[1];
-            sqlParameters[0] = new SqlParameter("@CMND_CCCD", System.Data.SqlDbType.VarChar);
-            sqlParameters[0].Value = Convert.ToString(CMND_CCCD);
-            object a = cnn.executeScalar(sql, sqlParameters);
-            return Convert.ToString(a);
+            string MaNV = "";
+            string sql = "[dbo].[proc_TimKiemNhanVien_CMND]";
+            string[] pNames = { "@CMND_CCCD" };
+            object[] pvalues = { CMND_CCCD };
+            MaNV = cnn.ExecuteStoredProcedureString(sql, pNames, pvalues);
+            return MaNV;
         }
         public int TimSoLuongNhanVienTheoGioiTinh(string gioitinh)
         {
@@ -35,12 +35,13 @@ namespace QuanLyKTX.DAO
             int count = cnn.ExecuteStoredProcedure(spName, pNames, pValues);
             return count;
         }
-        public string TongSoNhanVien()
+        public int TongSoNhanVien()
         {
-            const string sql = "select count(MaNhanVien) from NhanVien";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            object sl = cnn.executeScalar(sql, sqlParameters);
-            return Convert.ToString(sl);
+            string spName = "[dbo].[func_TongSoNhanVien]";
+            string[] pNames = { };
+            object[] pValues = { };
+            int count = cnn.ExecuteStoredProcedure(spName, pNames, pValues);
+            return count;
         }
         public int TimSoLuongSinhVienTheoGioiTinh(string gioitinh)
         {
@@ -52,54 +53,61 @@ namespace QuanLyKTX.DAO
             int count = cnn.ExecuteStoredProcedure(spName, pNames, pValues);
             return count;
         }
-        public string TongSoSinhVien()
+        public int TongSoSinhVien()
         {
-            const string sql = "select count(MaSinhVien) from SinhVien";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            object sl = cnn.executeScalar(sql, sqlParameters);
-            return Convert.ToString(sl);
+            string spName = "[dbo].[func_TongSoSinhVien]";
+            string[] pNames = { };
+            object[] pValues = { };
+            int count = cnn.ExecuteStoredProcedure(spName, pNames, pValues);
+            return count;
         }
-        public string TongSoTaiKhoan()
+        public int TongSoTaiKhoan()
         {
-            const string sql = "select count(TenTaiKhoan) from TaiKhoan";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            object sl = cnn.executeScalar(sql, sqlParameters);
-            return Convert.ToString(sl);
+            string spName = "[dbo].[func_TongSoTaiKhoan]";
+            string[] pNames = { };
+            object[] pValues = { };
+            int count = cnn.ExecuteStoredProcedure(spName, pNames, pValues);
+            return count;
         }
-        public string TongSoToa()
+        public int TongSoToa()
         {
-            const string sql = "select count(TenToa) from Toa";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            object sl = cnn.executeScalar(sql, sqlParameters);
-            return Convert.ToString(sl);
+            string spName = "[dbo].[func_TongSoToa]";
+            string[] pNames = { };
+            object[] pValues = { };
+            int count = cnn.ExecuteStoredProcedure(spName, pNames, pValues);
+            return count;
         }
-        public string SoLuongPhongTrong()
+        public int SoLuongPhongConCho()
         {
-            const string sql = "select count(MaPhong) from Phong where SoLuongSinhVienHienTai < SoLuongSinhVienToiDa";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            object sl = cnn.executeScalar(sql, sqlParameters);
-            return Convert.ToString(sl);
+            string spName = "[dbo].[func_TongSoPhongConCho]";
+            string[] pNames = { };
+            object[] pValues = { };
+            int count = cnn.ExecuteStoredProcedure(spName, pNames, pValues);
+            return count;
         }
-        public string SoLuongPhongDu()
+        public int SoLuongPhongDu()
         {
-            const string sql = "select count(MaPhong) from Phong where SoLuongSinhVienHienTai = SoLuongSinhVienToiDa";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            object sl = cnn.executeScalar(sql, sqlParameters);
-            return Convert.ToString(sl);
+            string spName = "[dbo].[func_TongSoPhongDay]";
+            string[] pNames = { };
+            object[] pValues = { };
+            int count = cnn.ExecuteStoredProcedure(spName, pNames, pValues);
+            return count;
         }
-        public string SoLuongThietBiHong()
+        public int SoLuongThietBiHong()
         {
-            const string sql = "select sum(SoLuongHong) from ThietBiTrongPhong";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            object sl = cnn.executeScalar(sql, sqlParameters);
-            return Convert.ToString(sl);
+            string spName = "[dbo].[func_SoThietBiHong]";
+            string[] pNames = { };
+            object[] pValues = { };
+            int count = cnn.ExecuteStoredProcedure(spName, pNames, pValues);
+            return count;
         }
-        public string TongSoLuongThietBi()
+        public int TongSoLuongThietBi()
         {
-            const string sql = "select sum(TongSoLuong) from TrangThietBi";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            object sl = cnn.executeScalar(sql, sqlParameters);
-            return Convert.ToString(sl);
+            string spName = "[dbo].[func_TongSoThietBi]";
+            string[] pNames = { };
+            object[] pValues = { };
+            int count = cnn.ExecuteStoredProcedure(spName, pNames, pValues);
+            return count;
         }
     }
 }

@@ -24,7 +24,7 @@ namespace QuanLyKTX.BUS
         {
             return tcDAO.TimSoLuongNhanVienTheoGioiTinh(gioitinh);
         }
-        public string TongSoNhanVien()
+        public int TongSoNhanVien()
         {
             return tcDAO.TongSoNhanVien();
         }
@@ -32,31 +32,31 @@ namespace QuanLyKTX.BUS
         {
             return tcDAO.TimSoLuongSinhVienTheoGioiTinh(gioitinh);
         }
-        public string TongSoSinhVien()
+        public int TongSoSinhVien()
         {
             return tcDAO.TongSoSinhVien();
         }
-        public string TongSoTaiKhoan()
+        public int TongSoTaiKhoan()
         {
             return tcDAO.TongSoTaiKhoan();
         }
-        public string TongSoToa()
+        public int TongSoToa()
         {
             return tcDAO.TongSoToa();
         }
-        public string SoLuongPhongTrong()
+        public int SoLuongPhongConCho()
         {
-            return tcDAO.SoLuongPhongTrong();
+            return tcDAO.SoLuongPhongConCho();
         }
-        public string SoLuongPhongDu()
+        public int SoLuongPhongDu()
         {
             return tcDAO.SoLuongPhongDu();
         }
-        public string SoLuongThietBiHong()
+        public int SoLuongThietBiHong()
         {
             return tcDAO.SoLuongThietBiHong();
         }
-        public string TongSoLuongThietBi()
+        public int TongSoLuongThietBi()
         {
             return tcDAO.TongSoLuongThietBi();
         }

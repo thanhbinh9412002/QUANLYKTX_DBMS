@@ -112,17 +112,17 @@ namespace QuanLyKTX
                     panel_toa.Visible = true;
                     lb_nvnam.Text = Convert.ToString(tcBUS.TimSoLuongNhanVienTheoGioiTinh("Nam"));
                     lb_nvnu.Text = Convert.ToString(tcBUS.TimSoLuongNhanVienTheoGioiTinh("Nữ"));
-                    lb_nvtong.Text = tcBUS.TongSoNhanVien();
+                    lb_nvtong.Text = tcBUS.TongSoNhanVien().ToString();
                     lb_svnam.Text = Convert.ToString(tcBUS.TimSoLuongSinhVienTheoGioiTinh("Nam"));
                     lb_svnu.Text = Convert.ToString(tcBUS.TimSoLuongSinhVienTheoGioiTinh("Nữ"));
-                    lb_svtong.Text = tcBUS.TongSoSinhVien();
-                    lb_soluongtk.Text = tcBUS.TongSoTaiKhoan();
-                    lb_soluongtoa.Text = tcBUS.TongSoToa();
-                    lb_phongdu.Text = tcBUS.SoLuongPhongDu();
-                    lb_phongtrong.Text = tcBUS.SoLuongPhongTrong();
+                    lb_svtong.Text = tcBUS.TongSoSinhVien().ToString();
+                    lb_soluongtk.Text = tcBUS.TongSoTaiKhoan().ToString();
+                    lb_soluongtoa.Text = tcBUS.TongSoToa().ToString();
+                    lb_phongdu.Text = tcBUS.SoLuongPhongDu().ToString();
+                    lb_phongtrong.Text = tcBUS.SoLuongPhongConCho().ToString();
                     lb_phongtong.Text = Convert.ToString(int.Parse(lb_phongdu.Text) + int.Parse(lb_phongtrong.Text));
-                    lb_tbhong.Text = tcBUS.SoLuongThietBiHong();
-                    lb_tbtong.Text = tcBUS.TongSoLuongThietBi();
+                    lb_tbhong.Text = tcBUS.SoLuongThietBiHong().ToString();
+                    lb_tbtong.Text = tcBUS.TongSoLuongThietBi().ToString();
                     lb_tbsd.Text = Convert.ToString(int.Parse(lb_tbtong.Text) - int.Parse(lb_tbhong.Text));
                 }
                 kt_trangchu = false;
