@@ -76,6 +76,12 @@
     <Compile Include="Dao\Toa_DAO.cs" />
     <Compile Include="Bus\DoiMatKhau_BUS.cs" />
     <Compile Include="Dao\DoiMatKhau_DAO.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\frm_CapNhatNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,10 +157,10 @@
     <Compile Include="Form\frm_DoiMatKhau.Designer.cs">
       <DependentUpon>frm_DoiMatKhau.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_TrangThietBi.cs">
+    <Compile Include="Form\frm_TrangThietBi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_TrangThietBi.Designer.cs">
+    <Compile Include="Form\frm_TrangThietBi.Designer.cs">
       <DependentUpon>frm_TrangThietBi.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\Program.cs" />
@@ -204,7 +210,7 @@
     <EmbeddedResource Include="Form\frm_ThietBiTrongPhong.resx">
       <DependentUpon>frm_ThietBiTrongPhong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_TrangThietBi.resx">
+    <EmbeddedResource Include="Form\frm_TrangThietBi.resx">
       <DependentUpon>frm_TrangThietBi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
