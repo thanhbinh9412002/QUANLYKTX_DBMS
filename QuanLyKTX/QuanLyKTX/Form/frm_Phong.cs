@@ -94,7 +94,7 @@ namespace QuanLyKTX
         {
             string MaPhong = Convert.ToString(dgvPhong.CurrentRow.Cells["MaPhong"].Value);
             int svhientai = Convert.ToInt32(dgvPhong.CurrentRow.Cells["SoLuongSinhVienHienTai"].Value);
-            DialogResult h = MessageBox.Show("Bạn có chắc muốn thoát không?", "Error", MessageBoxButtons.OKCancel);
+            DialogResult h = MessageBox.Show("Bạn có chắc muốn xóa không?", "Error", MessageBoxButtons.OKCancel);
             if (h == DialogResult.OK)
             {
                 if (svhientai == 0)

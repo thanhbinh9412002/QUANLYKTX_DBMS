@@ -19,7 +19,7 @@ namespace QuanLyKTX.DAO
         public string TimMaNhanVien(string CMND_CCCD)
         {
             string MaNV = "";
-            string sql = "[dbo].[proc_TimKiemNhanVien_CMND]";
+            string sql = "[dbo].[func_TimKiemNhanVien_CMND]";
             string[] pNames = { "@CMND_CCCD" };
             object[] pvalues = { CMND_CCCD };
             MaNV = cnn.ExecuteStoredProcedureString(sql, pNames, pvalues);
