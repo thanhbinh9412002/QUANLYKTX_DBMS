@@ -76,12 +76,6 @@
     <Compile Include="Dao\Toa_DAO.cs" />
     <Compile Include="Bus\DoiMatKhau_BUS.cs" />
     <Compile Include="Dao\DoiMatKhau_DAO.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form\frm_CapNhatNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
